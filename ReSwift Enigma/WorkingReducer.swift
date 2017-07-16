@@ -8,6 +8,7 @@
 
 import ReSwift
 
+/*
 struct WorkingState: StateType {
     var selectedLetter: String?
     
@@ -32,8 +33,8 @@ func initialWorkingState() -> WorkingState {
     var rightRotorToUse = rotors[rightRotorType]
     
     if rightRotorOffset > 0 {
-        rightRotorToUse.offset = rightRotorOffset
-        rightRotorToUse.wiring = advance(rotor: rightRotorToUse.wiring, by: rightRotorOffset)
+//        rightRotorToUse.offset = rightRotorOffset
+        rightRotorToUse.wiring = advance(wiring: rightRotorToUse.wiring, by: rightRotorOffset)
     }
     
     // Centre rotor
@@ -45,8 +46,8 @@ func initialWorkingState() -> WorkingState {
     var centreRotorToUse = rotors[centreRotorType]
     
     if centreRotorOffset > 0 {
-        centreRotorToUse.offset = centreRotorOffset
-        centreRotorToUse.wiring = advance(rotor: centreRotorToUse.wiring, by: centreRotorOffset)
+//        centreRotorToUse.offset = centreRotorOffset
+        centreRotorToUse.wiring = advance(wiring: centreRotorToUse.wiring, by: centreRotorOffset)
     }
     
     // Left rotor
@@ -58,8 +59,8 @@ func initialWorkingState() -> WorkingState {
     var leftRotorToUse = rotors[leftRotorType]
     
     if leftRotorOffset > 0 {
-        leftRotorToUse.offset = leftRotorOffset
-        leftRotorToUse.wiring = advance(rotor: leftRotorToUse.wiring, by: leftRotorOffset)
+//        leftRotorToUse.offset = leftRotorOffset
+        leftRotorToUse.wiring = advance(wiring: leftRotorToUse.wiring, by: leftRotorOffset)
     }
     
     // Reflector
@@ -96,29 +97,30 @@ func workingReducer(action: Action, state: WorkingState?) -> WorkingState {
     
     return state
 }
+*/
 
 protocol Rotor {
-    var offset: Int { get set }
+//    var offset: Int { get set }
     var wiring: [String:String] { get set }
     var stepover: Int { get }
 }
 
 struct RotorI: Rotor {
-    var offset = 0
+//    var offset = 0
     // E K M F L G D Q V Z N T O W Y H X U S P A I B R C J
-    var wiring = ["A":"K", "B":"K", "C":"M", "D":"F", "E":"L", "F":"G", "G":"D", "H":"Q", "I":"V", "J":"Z", "K":"N", "L":"T", "M":"O", "N":"W", "O":"Y", "P":"H", "Q":"X", "R":"U", "S":"S", "T":"P", "U":"A", "V":"I", "W":"B", "X":"R", "Y":"C", "Z":"J"]
+    var wiring = ["A":"E", "B":"K", "C":"M", "D":"F", "E":"L", "F":"G", "G":"D", "H":"Q", "I":"V", "J":"Z", "K":"N", "L":"T", "M":"O", "N":"W", "O":"Y", "P":"H", "Q":"X", "R":"U", "S":"S", "T":"P", "U":"A", "V":"I", "W":"B", "X":"R", "Y":"C", "Z":"J"]
     let stepover = 16 // "Q" ("A" == 0)
 }
 
 struct RotorII: Rotor {
-    var offset = 0
+//    var offset = 0
     // A J D K S I R U X B L H W T M C Q G Z N P Y F V O E
     var wiring = ["A":"A", "B":"J", "C":"D", "D":"K", "E":"S", "F":"I", "G":"R", "H":"U", "I":"X", "J":"B", "K":"L", "L":"H", "M":"W", "N":"T", "O":"M", "P":"C", "Q":"Q", "R":"G", "S":"Z", "T":"N", "U":"P", "V":"Y", "W":"F", "X":"V", "Y":"O", "Z":"E"]
     let stepover = 4 // "E" ("A" == 0)
 }
 
 struct RotorIII: Rotor {
-    var offset = 0
+//    var offset = 0
     // B D F H J L C P R T X V Z N Y E I W G A K M U S Q O
     var wiring = ["A":"B", "B":"D", "C":"F", "D":"H", "E":"J", "F":"L", "G":"C", "H":"P", "I":"R", "J":"T", "K":"X", "L":"V", "M":"Z", "N":"N", "O":"Y", "P":"E", "Q":"I", "R":"W", "S":"G", "T":"A", "U":"K", "V":"M", "W":"U", "X":"S", "Y":"Q", "Z":"O"]
     let stepover = 21 // "V" ("A" == 0)
@@ -146,17 +148,22 @@ struct ReflectorC: Reflector {
 let rotors: [Rotor] = [RotorI(), RotorII(), RotorIII()]
 let reflectors: [Reflector] = [ReflectorA(), ReflectorB(), ReflectorC()]
 
-let nextLetterDict: [String: String] = ["A":"B", "B":"C", "C":"D", "D":"E", "E":"F", "F":"G", "G":"H", "H":"I", "I":"J", "J":"K", "K":"L", "L":"M", "M":"N", "N":"O", "O":"P", "P":"Q", "Q":"R", "R":"S", "S":"T", "T":"U", "U":"V", "V":"W", "W":"X", "X":"Y", "Y":"Z", "Z":"A"]
+let prevLetterDict: [String:String] = ["A":"Z", "B":"A", "C":"B", "D":"C", "E":"D", "F":"E", "G":"F", "H":"G", "I":"H", "J":"I", "K":"J", "L":"K", "M":"L", "N":"M", "O":"N", "P":"O", "Q":"P", "R":"Q", "S":"R", "T":"S", "U":"T", "V":"U", "W":"V", "X":"W", "Y":"X", "Z":"Y"]
 
-func advance(rotor: [String: String], by: Int) -> [String:String] {
-    var varRotor = rotor
+func advance(wiring: [String: String], by: Int) -> [String:String] {
+    if by <= 0 {
+        return wiring
+    }
+    
+    var varWiring = wiring
     
     for _ in 1...by {
         //        print("\(varRotor) : varRotor start")
         
-        let nextRotorArray = varRotor.map { (key: String, value: String) -> [String:String] in
-            let nextLetter = nextLetterDict[key]!
-            return [nextLetter:value]
+        let nextRotorArray = varWiring.map { (key: String, value: String) -> [String:String] in
+            let nextLetter = prevLetterDict[key]!
+            let nextValue = prevLetterDict[value]!
+            return [nextLetter:nextValue]
         }
         //        print(nextRotorArray)
         
@@ -169,10 +176,25 @@ func advance(rotor: [String: String], by: Int) -> [String:String] {
         
         //        print("\(nextRotor) : nextRotor")
         
-        varRotor = nextRotor
+        varWiring = nextRotor
         
         //        print("\(varRotor) : varRotor")
     }
     
-    return varRotor
+    return varWiring
+}
+
+func reverse(wiring: [String:String]) -> [String:String] {
+    let reverseArray = wiring.map { key, value in
+        return [value: key]
+    }
+    
+    let reverseDict = reverseArray.reduce([:]) { dictionarySoFar, nextKeyValuePair -> [String:String] in
+        guard let first = nextKeyValuePair.first else { return [:] }
+        var varDictionarySoFar = dictionarySoFar
+        varDictionarySoFar[first.key] = first.value
+        return varDictionarySoFar
+    }
+    
+    return reverseDict
 }

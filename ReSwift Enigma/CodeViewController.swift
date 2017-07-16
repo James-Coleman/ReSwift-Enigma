@@ -82,7 +82,7 @@ class CodeViewController: UIViewController {
     
     @IBAction func keyTouchDown(_ sender: UIButton) {
         guard let letter = keyLetters[sender] else { return }
-        guard let encodedLetter = encodeLetter(letter: letter) else { return }
+        guard let encodedLetter = encode(letter: letter) else { return }
         
         mainStore.dispatch(SelectLetter(letter: encodedLetter))
     }
@@ -95,6 +95,57 @@ class CodeViewController: UIViewController {
         mainStore.dispatch(ClearLetter())
     }
     
+    func encode(letter: String) -> String? {
+        let rotorState = mainStore.state.rotorState
+        
+        let rightWiring = rotorState.rightWiring
+        let centreWiring = rotorState.centreWiring
+        let leftWiring = rotorState.leftWiring
+        
+        log.debug(rotorState.rightRotor.wiring)
+        log.debug(rotorState.rightWiring)
+        
+        let reverseRightWiring = rotorState.reverseRightWiring
+        let reverseCentreWiring = rotorState.reverseCentreWiring
+        let reverseLeftWiring = rotorState.reverseLeftWiring
+        
+        guard let rightLetter = rightWiring[letter] else {
+            log.error("no right letter from \(letter)")
+            return nil
+        }
+        guard let centreLetter = centreWiring[rightLetter] else {
+            log.error("no centre letter from \(rightLetter)")
+            return nil
+        }
+        guard let leftLetter = leftWiring[centreLetter] else {
+            log.error("no left letter from \(centreLetter)")
+            return nil
+        }
+        
+        guard let reflectedLetter = rotorState.reflector.wiring[leftLetter] else {
+            log.error("no reflected letter from \(leftLetter)")
+            return nil
+        }
+        
+        guard let reflectedLeftLetter = reverseLeftWiring[reflectedLetter] else {
+            log.error("no reflected left letter from \(reflectedLetter)")
+            return nil
+        }
+        guard let reflectedCentreLetter = reverseCentreWiring[reflectedLeftLetter] else {
+            log.error("no reflected centre letter from \(reflectedLeftLetter)")
+            return nil
+        }
+        guard let reflectedRightLetter = reverseRightWiring[reflectedCentreLetter] else {
+            log.error("no reflected right letter from \(reflectedCentreLetter)")
+            return nil
+        }
+        
+        log.info("\(letter), \(rightLetter), \(centreLetter), \(leftLetter), \(reflectedLetter), \(reflectedLeftLetter), \(reflectedCentreLetter), \(reflectedRightLetter)")
+        
+        return reflectedRightLetter
+    }
+    
+    /*
     func encodeLetter(letter: String) -> String? {
         let workingState = mainStore.state.workingState
         
@@ -116,6 +167,7 @@ class CodeViewController: UIViewController {
         
         return reflectedRightLetter
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,7 +220,14 @@ extension CodeViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
-            break
+            mainStore.dispatch(SetInitialPosition(rotor: .left, offset: row))
+            
+        case 1:
+            mainStore.dispatch(SetInitialPosition(rotor: .centre, offset: row))
+            
+        case 2:
+            mainStore.dispatch(SetInitialPosition(rotor: .right, offset: row))
+            
         default:
             break
         }
@@ -177,11 +236,26 @@ extension CodeViewController: UIPickerViewDelegate {
 
 extension CodeViewController: StoreSubscriber {
     func newState(state: AppState) {
-        let workingState = state.workingState
-        let selectedLetter = workingState.selectedLetter ?? ""
+//        let workingState = state.workingState
         
-        for (letter, light) in lights {
-            light.textColor = letter == selectedLetter ? .yellow : .lightGray
+//        let selectedLetter = workingState.selectedLetter ?? ""
+
+        // Could replace this with a map?
+//        for (letter, light) in lights {
+//            light.textColor = letter == selectedLetter ? .yellow : .lightGray
+//        }
+        
+        let rotorState = state.rotorState
+        
+        rotors.selectRow(rotorState.leftRotorOffset, inComponent: 0, animated: true)
+        rotors.selectRow(rotorState.centreRotorOffset, inComponent: 1, animated: true)
+        rotors.selectRow(rotorState.rightRotorOffset, inComponent: 2, animated: true)
+        
+        let lightboardState = state.lightboardState
+        
+        lights.map { (letter, label) in
+            label.textColor = lightboardState.litBulb == letter ? .yellow : .lightGray
         }
+        
     }
 }

@@ -1,5 +1,5 @@
 //
-//  WorkingActions.swift
+//  LightboardActions.swift
 //  ReSwift Enigma
 //
 //  Created by James Coleman on 16/07/2017.
@@ -8,4 +8,8 @@
 
 import ReSwift
 
+struct SelectLetter: Action {
+    let letter: String
+}
 
+struct ClearLetter: Action {}

@@ -66,7 +66,7 @@ class SetupViewController: UIViewController {
         if (firstLetterUppercase == "") || (alphabet.contains(firstLetterUppercase) == false) || (firstLetterUppercase == plugboardLetter) {
             // Clear the other textfield as well
         
-            let clearedLetter = mainStore.state.setupState.plugboard[plugboardLetter] ?? ""
+            let clearedLetter = mainStore.state.plugboardState.plugboard[plugboardLetter] ?? ""
             
 //            log.debug("clearedLetter: \(clearedLetter)")
             
@@ -82,7 +82,7 @@ class SetupViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        log.debug("Setup viewDidLoad")
+//        log.debug("Setup viewDidLoad")
         
         mainStore.subscribe(self)
         
@@ -193,20 +193,20 @@ extension SetupViewController: UIPickerViewDataSource {
 extension SetupViewController: StoreSubscriber {
     func newState(state: AppState) {
 //        print("New state: ", state)
-        log.verbose(state)
+//        log.verbose(state)
         
-        let setupState = state.setupState
+        let rotorState = state.rotorState
         
-        reflectorAndRotors.selectRow(setupState.reflector, inComponent: 0, animated: false)
-        reflectorAndRotors.selectRow(setupState.leftRotor.type, inComponent: 1, animated: false)
-        reflectorAndRotors.selectRow(setupState.centreRotor.type, inComponent: 2, animated: false)
-        reflectorAndRotors.selectRow(setupState.rightRotor.type, inComponent: 3, animated: false)
+        reflectorAndRotors.selectRow(rotorState.reflectorRow, inComponent: 0, animated: false)
+        reflectorAndRotors.selectRow(rotorState.leftRotorRow, inComponent: 1, animated: false)
+        reflectorAndRotors.selectRow(rotorState.centreRotorRow, inComponent: 2, animated: false)
+        reflectorAndRotors.selectRow(rotorState.rightRotorRow, inComponent: 3, animated: false)
         
-        initialRotorOffset.selectRow(setupState.leftRotor.offset, inComponent: 0, animated: false)
-        initialRotorOffset.selectRow(setupState.centreRotor.offset, inComponent: 1, animated: false)
-        initialRotorOffset.selectRow(setupState.rightRotor.offset, inComponent: 2, animated: false)
+        initialRotorOffset.selectRow(rotorState.leftRotorOffset, inComponent: 0, animated: false)
+        initialRotorOffset.selectRow(rotorState.centreRotorOffset, inComponent: 1, animated: false)
+        initialRotorOffset.selectRow(rotorState.rightRotorOffset, inComponent: 2, animated: false)
         
-        let plugboard = setupState.plugboard
+        let plugboard = state.plugboardState.plugboard
         
         plugboardQ.text = plugboard["Q"]
         plugboardW.text = plugboard["W"]
