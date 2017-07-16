@@ -1,0 +1,6 @@
+framework module Pods_ReSwift_Enigma {
+  umbrella header "Pods-ReSwift Enigma-umbrella.h"
+
+  export *
+  module * { export * }
+}

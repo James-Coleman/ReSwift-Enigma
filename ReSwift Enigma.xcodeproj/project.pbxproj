@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7598AC69071C395983A0B985 /* Pods_ReSwift_Enigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CA9630A71A8CD494B106A9 /* Pods_ReSwift_Enigma.framework */; };
+		C6997ECB1F195599006F57BB /* SetupActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECA1F195599006F57BB /* SetupActions.swift */; };
+		C6997ECD1F1955FD006F57BB /* SetupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECC1F1955FD006F57BB /* SetupReducer.swift */; };
+		C6997ECF1F1ABB8B006F57BB /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */; };
+		C6997ED11F1AD769006F57BB /* WorkingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ED01F1AD769006F57BB /* WorkingActions.swift */; };
+		C6997ED41F1AD799006F57BB /* WorkingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ED31F1AD799006F57BB /* WorkingReducer.swift */; };
+		C6A1FB941F172CF000A73DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A1FB931F172CF000A73DEB /* AppDelegate.swift */; };
+		C6A1FB961F172CF000A73DEB /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A1FB951F172CF000A73DEB /* SetupViewController.swift */; };
+		C6A1FB991F172CF000A73DEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A1FB971F172CF000A73DEB /* Main.storyboard */; };
+		C6A1FB9B1F172CF000A73DEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A1FB9A1F172CF000A73DEB /* Assets.xcassets */; };
+		C6A1FB9E1F172CF000A73DEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A1FB9C1F172CF000A73DEB /* LaunchScreen.storyboard */; };
+		C6A1FBA61F172F4700A73DEB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A1FBA51F172F4700A73DEB /* Store.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B53499637E9756F684657821 /* Pods-ReSwift Enigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwift Enigma.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwift Enigma/Pods-ReSwift Enigma.release.xcconfig"; sourceTree = "<group>"; };
+		B6CA9630A71A8CD494B106A9 /* Pods_ReSwift_Enigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReSwift_Enigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEAB0D8CD2358BA43B0BBD04 /* Pods-ReSwift Enigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwift Enigma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwift Enigma/Pods-ReSwift Enigma.debug.xcconfig"; sourceTree = "<group>"; };
+		C6997ECA1F195599006F57BB /* SetupActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupActions.swift; sourceTree = "<group>"; };
+		C6997ECC1F1955FD006F57BB /* SetupReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupReducer.swift; sourceTree = "<group>"; };
+		C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		C6997ED01F1AD769006F57BB /* WorkingActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingActions.swift; sourceTree = "<group>"; };
+		C6997ED31F1AD799006F57BB /* WorkingReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingReducer.swift; sourceTree = "<group>"; };
+		C6A1FB901F172CF000A73DEB /* ReSwift Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReSwift Enigma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A1FB931F172CF000A73DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C6A1FB951F172CF000A73DEB /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		C6A1FB981F172CF000A73DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6A1FB9A1F172CF000A73DEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6A1FB9D1F172CF000A73DEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C6A1FB9F1F172CF000A73DEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A1FBA51F172F4700A73DEB /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6A1FB8D1F172CF000A73DEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7598AC69071C395983A0B985 /* Pods_ReSwift_Enigma.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		73FB975FA25F2A02CD70C1ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEAB0D8CD2358BA43B0BBD04 /* Pods-ReSwift Enigma.debug.xcconfig */,
+				B53499637E9756F684657821 /* Pods-ReSwift Enigma.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C6997ED21F1AD787006F57BB /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				C6997ECA1F195599006F57BB /* SetupActions.swift */,
+				C6997ED01F1AD769006F57BB /* WorkingActions.swift */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		C6997ED51F1B6EF7006F57BB /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				C6997ECC1F1955FD006F57BB /* SetupReducer.swift */,
+				C6997ED31F1AD799006F57BB /* WorkingReducer.swift */,
+			);
+			name = Reducers;
+			sourceTree = "<group>";
+		};
+		C6A1FB871F172CEF00A73DEB = {
+			isa = PBXGroup;
+			children = (
+				C6A1FB921F172CF000A73DEB /* ReSwift Enigma */,
+				C6A1FB911F172CF000A73DEB /* Products */,
+				73FB975FA25F2A02CD70C1ED /* Pods */,
+				E06F65DD480BBB3A580711F9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C6A1FB911F172CF000A73DEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6A1FB901F172CF000A73DEB /* ReSwift Enigma.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6A1FB921F172CF000A73DEB /* ReSwift Enigma */ = {
+			isa = PBXGroup;
+			children = (
+				C6A1FB931F172CF000A73DEB /* AppDelegate.swift */,
+				C6A1FB951F172CF000A73DEB /* SetupViewController.swift */,
+				C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */,
+				C6A1FB971F172CF000A73DEB /* Main.storyboard */,
+				C6A1FB9A1F172CF000A73DEB /* Assets.xcassets */,
+				C6A1FB9C1F172CF000A73DEB /* LaunchScreen.storyboard */,
+				C6A1FB9F1F172CF000A73DEB /* Info.plist */,
+				C6A1FBA51F172F4700A73DEB /* Store.swift */,
+				C6997ED21F1AD787006F57BB /* Actions */,
+				C6997ED51F1B6EF7006F57BB /* Reducers */,
+			);
+			path = "ReSwift Enigma";
+			sourceTree = "<group>";
+		};
+		E06F65DD480BBB3A580711F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6CA9630A71A8CD494B106A9 /* Pods_ReSwift_Enigma.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6A1FB8F1F172CF000A73DEB /* ReSwift Enigma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6A1FBA21F172CF000A73DEB /* Build configuration list for PBXNativeTarget "ReSwift Enigma" */;
+			buildPhases = (
+				A7C8ED9E3F3051CF08963072 /* [CP] Check Pods Manifest.lock */,
+				C6A1FB8C1F172CF000A73DEB /* Sources */,
+				C6A1FB8D1F172CF000A73DEB /* Frameworks */,
+				C6A1FB8E1F172CF000A73DEB /* Resources */,
+				92B222248B3D89320E40C9E1 /* [CP] Embed Pods Frameworks */,
+				344B1E9FA0782E3A3905BB09 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ReSwift Enigma";
+			productName = "ReSwift Enigma";
+			productReference = C6A1FB901F172CF000A73DEB /* ReSwift Enigma.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6A1FB881F172CEF00A73DEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "James Coleman";
+				TargetAttributes = {
+					C6A1FB8F1F172CF000A73DEB = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C6A1FB8B1F172CEF00A73DEB /* Build configuration list for PBXProject "ReSwift Enigma" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6A1FB871F172CEF00A73DEB;
+			productRefGroup = C6A1FB911F172CF000A73DEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6A1FB8F1F172CF000A73DEB /* ReSwift Enigma */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6A1FB8E1F172CF000A73DEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6A1FB9E1F172CF000A73DEB /* LaunchScreen.storyboard in Resources */,
+				C6A1FB9B1F172CF000A73DEB /* Assets.xcassets in Resources */,
+				C6A1FB991F172CF000A73DEB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		344B1E9FA0782E3A3905BB09 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReSwift Enigma/Pods-ReSwift Enigma-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92B222248B3D89320E40C9E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReSwift Enigma/Pods-ReSwift Enigma-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7C8ED9E3F3051CF08963072 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6A1FB8C1F172CF000A73DEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6997ECD1F1955FD006F57BB /* SetupReducer.swift in Sources */,
+				C6A1FBA61F172F4700A73DEB /* Store.swift in Sources */,
+				C6997ED41F1AD799006F57BB /* WorkingReducer.swift in Sources */,
+				C6A1FB961F172CF000A73DEB /* SetupViewController.swift in Sources */,
+				C6997ECF1F1ABB8B006F57BB /* CodeViewController.swift in Sources */,
+				C6A1FB941F172CF000A73DEB /* AppDelegate.swift in Sources */,
+				C6997ED11F1AD769006F57BB /* WorkingActions.swift in Sources */,
+				C6997ECB1F195599006F57BB /* SetupActions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C6A1FB971F172CF000A73DEB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6A1FB981F172CF000A73DEB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C6A1FB9C1F172CF000A73DEB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6A1FB9D1F172CF000A73DEB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6A1FBA01F172CF000A73DEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C6A1FBA11F172CF000A73DEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C6A1FBA31F172CF000A73DEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEAB0D8CD2358BA43B0BBD04 /* Pods-ReSwift Enigma.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ReSwift Enigma/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "james-coleman.ReSwift-Enigma";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C6A1FBA41F172CF000A73DEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B53499637E9756F684657821 /* Pods-ReSwift Enigma.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ReSwift Enigma/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "james-coleman.ReSwift-Enigma";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6A1FB8B1F172CEF00A73DEB /* Build configuration list for PBXProject "ReSwift Enigma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6A1FBA01F172CF000A73DEB /* Debug */,
+				C6A1FBA11F172CF000A73DEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6A1FBA21F172CF000A73DEB /* Build configuration list for PBXNativeTarget "ReSwift Enigma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6A1FBA31F172CF000A73DEB /* Debug */,
+				C6A1FBA41F172CF000A73DEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6A1FB881F172CEF00A73DEB /* Project object */;
+}

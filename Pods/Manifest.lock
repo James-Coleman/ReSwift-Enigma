@@ -1,0 +1,15 @@
+PODS:
+  - ReSwift (4.0.0)
+  - SwiftyBeaver (1.3.0)
+
+DEPENDENCIES:
+  - ReSwift
+  - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  ReSwift: f058ef13b46ae5f463f10605ccbbb7fb04424d8d
+  SwiftyBeaver: d4b551ba34b4206c52cc4684ae90444b8aaa5afd
+
+PODFILE CHECKSUM: 260c757633cea6b691b33577e21cb0d0ea4ef564
+
+COCOAPODS: 1.2.1
