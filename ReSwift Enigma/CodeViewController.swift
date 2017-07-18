@@ -18,6 +18,9 @@ class CodeViewController: UIViewController {
     
     @IBOutlet weak var rotors: UIPickerView!
     
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     // MARK: Lightboard
     
     @IBOutlet weak var lightQ: UILabel!
@@ -80,6 +83,10 @@ class CodeViewController: UIViewController {
     @IBOutlet weak var keyM: UIButton!
     @IBOutlet weak var keyL: UIButton!
     
+    @IBAction func deleteLetter(_ sender: Any) {
+        mainStore.dispatch(DeleteLetter())
+    }
+    
     @IBAction func keyTouchDown(_ sender: UIButton) {
         guard let letter = keyLetters[sender] else { return }
         guard let encodedLetter = encode(letter: letter) else { return }
@@ -98,19 +105,28 @@ class CodeViewController: UIViewController {
     func encode(letter: String) -> String? {
         let rotorState = mainStore.state.rotorState
         
+        let plugboard = mainStore.state.plugboardState.plugboard
+        
         let rightWiring = rotorState.rightWiring
         let centreWiring = rotorState.centreWiring
         let leftWiring = rotorState.leftWiring
         
-        log.debug(rotorState.rightRotor.wiring)
-        log.debug(rotorState.rightWiring)
+//        log.debug(rotorState.rightRotor.wiring)
+//        log.debug(rotorState.rightWiring)
         
         let reverseRightWiring = rotorState.reverseRightWiring
         let reverseCentreWiring = rotorState.reverseCentreWiring
         let reverseLeftWiring = rotorState.reverseLeftWiring
         
-        guard let rightLetter = rightWiring[letter] else {
-            log.error("no right letter from \(letter)")
+        guard let plugboardOutLetter = plugboard[letter] else {
+            log.error("no plugboard out letter from \(letter)")
+            return nil
+        }
+        
+        let actualPlugboardOutLetter = plugboardOutLetter == "" ? letter : plugboardOutLetter
+        
+        guard let rightLetter = rightWiring[actualPlugboardOutLetter] else {
+            log.error("no right letter from \(actualPlugboardOutLetter)")
             return nil
         }
         guard let centreLetter = centreWiring[rightLetter] else {
@@ -140,9 +156,16 @@ class CodeViewController: UIViewController {
             return nil
         }
         
-        log.info("\(letter), \(rightLetter), \(centreLetter), \(leftLetter), \(reflectedLetter), \(reflectedLeftLetter), \(reflectedCentreLetter), \(reflectedRightLetter)")
+        guard let plugboardInLetter = plugboard[reflectedRightLetter] else {
+            log.error("no plugboard out letter from \(reflectedRightLetter)")
+            return nil
+        }
         
-        return reflectedRightLetter
+        let actualPlugboardInLetter = plugboardInLetter == "" ? reflectedRightLetter : plugboardInLetter
+        
+        log.info("\(letter), \(plugboardOutLetter), \(actualPlugboardOutLetter), \(rightLetter), \(centreLetter), \(leftLetter), \(reflectedLetter), \(reflectedLeftLetter), \(reflectedCentreLetter), \(reflectedRightLetter), \(plugboardInLetter), \(actualPlugboardInLetter)")
+        
+        return actualPlugboardInLetter
     }
     
     /*
@@ -174,7 +197,7 @@ class CodeViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        mainStore.subscribe(self)
+//        mainStore.subscribe(self)
         
         rotors.dataSource = self
         rotors.delegate = self
@@ -182,6 +205,21 @@ class CodeViewController: UIViewController {
         lights = ["Q":lightQ, "W":lightW, "E":lightE, "R":lightR, "T":lightT, "Z":lightZ, "U":lightU, "I":lightI, "O":lightO, "A":lightA, "S":lightS, "D":lightD, "F":lightF, "G":lightG, "H":lightH, "J":lightJ, "K":lightK, "P":lightP, "Y":lightY, "X":lightX, "C":lightC, "V":lightV, "B":lightB, "N":lightN, "M":lightM, "L":lightL]
         
         keyLetters = [keyQ:"Q", keyW:"W", keyE:"E", keyR:"R", keyT:"T", keyZ:"Z", keyU:"U", keyI:"I", keyO:"O", keyA:"A", keyS:"S", keyD:"D", keyF:"F", keyG:"G", keyH:"H", keyJ:"J", keyK:"K", keyP:"P", keyY:"Y", keyX:"X", keyC:"C", keyV:"V", keyB:"B", keyN:"N", keyM:"M", keyL:"L"]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainStore.subscribe(self)
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        
+//        log.debug(parent)
+        
+        if parent == nil {
+            mainStore.dispatch(PopBack())
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -251,11 +289,14 @@ extension CodeViewController: StoreSubscriber {
         rotors.selectRow(rotorState.centreRotorOffset, inComponent: 1, animated: true)
         rotors.selectRow(rotorState.rightRotorOffset, inComponent: 2, animated: true)
         
-        let lightboardState = state.lightboardState
+        let outputState = state.outputState
         
         lights.map { (letter, label) in
-            label.textColor = lightboardState.litBulb == letter ? .yellow : .lightGray
+            label.textColor = outputState.currentLetter == letter ? .yellow : .lightGray
         }
+        
+        messageLabel.text = outputState.message
+        deleteButton.isEnabled = outputState.message.characters.count > 0
         
     }
 }

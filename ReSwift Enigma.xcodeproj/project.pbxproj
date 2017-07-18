@@ -11,9 +11,11 @@
 		C692DDC31F1B972A00D0F2C8 /* RotorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC21F1B972A00D0F2C8 /* RotorReducer.swift */; };
 		C692DDC51F1BA6A400D0F2C8 /* RotorActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC41F1BA6A400D0F2C8 /* RotorActions.swift */; };
 		C692DDC71F1BAC3300D0F2C8 /* PlugboardReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC61F1BAC3300D0F2C8 /* PlugboardReducer.swift */; };
-		C692DDC91F1BACEF00D0F2C8 /* LightboardReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC81F1BACEF00D0F2C8 /* LightboardReducer.swift */; };
+		C692DDC91F1BACEF00D0F2C8 /* OutputReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC81F1BACEF00D0F2C8 /* OutputReducer.swift */; };
 		C692DDCB1F1BAD7200D0F2C8 /* PlugboardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDCA1F1BAD7200D0F2C8 /* PlugboardActions.swift */; };
-		C692DDCD1F1BB07000D0F2C8 /* LightboardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDCC1F1BB07000D0F2C8 /* LightboardActions.swift */; };
+		C692DDCD1F1BB07000D0F2C8 /* OutputActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDCC1F1BB07000D0F2C8 /* OutputActions.swift */; };
+		C692DDCF1F1DD7D800D0F2C8 /* NavigationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDCE1F1DD7D800D0F2C8 /* NavigationReducer.swift */; };
+		C692DDD11F1DD92B00D0F2C8 /* NavigationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDD01F1DD92B00D0F2C8 /* NavigationActions.swift */; };
 		C6997ECB1F195599006F57BB /* SetupActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECA1F195599006F57BB /* SetupActions.swift */; };
 		C6997ECD1F1955FD006F57BB /* SetupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECC1F1955FD006F57BB /* SetupReducer.swift */; };
 		C6997ECF1F1ABB8B006F57BB /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */; };
@@ -34,9 +36,11 @@
 		C692DDC21F1B972A00D0F2C8 /* RotorReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorReducer.swift; sourceTree = "<group>"; };
 		C692DDC41F1BA6A400D0F2C8 /* RotorActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorActions.swift; sourceTree = "<group>"; };
 		C692DDC61F1BAC3300D0F2C8 /* PlugboardReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugboardReducer.swift; sourceTree = "<group>"; };
-		C692DDC81F1BACEF00D0F2C8 /* LightboardReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboardReducer.swift; sourceTree = "<group>"; };
+		C692DDC81F1BACEF00D0F2C8 /* OutputReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputReducer.swift; sourceTree = "<group>"; };
 		C692DDCA1F1BAD7200D0F2C8 /* PlugboardActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugboardActions.swift; sourceTree = "<group>"; };
-		C692DDCC1F1BB07000D0F2C8 /* LightboardActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboardActions.swift; sourceTree = "<group>"; };
+		C692DDCC1F1BB07000D0F2C8 /* OutputActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputActions.swift; sourceTree = "<group>"; };
+		C692DDCE1F1DD7D800D0F2C8 /* NavigationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationReducer.swift; sourceTree = "<group>"; };
+		C692DDD01F1DD92B00D0F2C8 /* NavigationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationActions.swift; sourceTree = "<group>"; };
 		C6997ECA1F195599006F57BB /* SetupActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupActions.swift; sourceTree = "<group>"; };
 		C6997ECC1F1955FD006F57BB /* SetupReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupReducer.swift; sourceTree = "<group>"; };
 		C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +84,8 @@
 				C6997ED01F1AD769006F57BB /* WorkingActions.swift */,
 				C692DDC41F1BA6A400D0F2C8 /* RotorActions.swift */,
 				C692DDCA1F1BAD7200D0F2C8 /* PlugboardActions.swift */,
-				C692DDCC1F1BB07000D0F2C8 /* LightboardActions.swift */,
+				C692DDCC1F1BB07000D0F2C8 /* OutputActions.swift */,
+				C692DDD01F1DD92B00D0F2C8 /* NavigationActions.swift */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -91,8 +96,9 @@
 				C6997ECC1F1955FD006F57BB /* SetupReducer.swift */,
 				C6997ED31F1AD799006F57BB /* WorkingReducer.swift */,
 				C692DDC21F1B972A00D0F2C8 /* RotorReducer.swift */,
+				C692DDCE1F1DD7D800D0F2C8 /* NavigationReducer.swift */,
 				C692DDC61F1BAC3300D0F2C8 /* PlugboardReducer.swift */,
-				C692DDC81F1BACEF00D0F2C8 /* LightboardReducer.swift */,
+				C692DDC81F1BACEF00D0F2C8 /* OutputReducer.swift */,
 			);
 			name = Reducers;
 			sourceTree = "<group>";
@@ -266,13 +272,15 @@
 				C6997ECD1F1955FD006F57BB /* SetupReducer.swift in Sources */,
 				C6A1FBA61F172F4700A73DEB /* Store.swift in Sources */,
 				C692DDCB1F1BAD7200D0F2C8 /* PlugboardActions.swift in Sources */,
+				C692DDD11F1DD92B00D0F2C8 /* NavigationActions.swift in Sources */,
+				C692DDCF1F1DD7D800D0F2C8 /* NavigationReducer.swift in Sources */,
 				C692DDC71F1BAC3300D0F2C8 /* PlugboardReducer.swift in Sources */,
 				C6997ED41F1AD799006F57BB /* WorkingReducer.swift in Sources */,
-				C692DDC91F1BACEF00D0F2C8 /* LightboardReducer.swift in Sources */,
+				C692DDC91F1BACEF00D0F2C8 /* OutputReducer.swift in Sources */,
 				C692DDC31F1B972A00D0F2C8 /* RotorReducer.swift in Sources */,
 				C6A1FB961F172CF000A73DEB /* SetupViewController.swift in Sources */,
 				C6997ECF1F1ABB8B006F57BB /* CodeViewController.swift in Sources */,
-				C692DDCD1F1BB07000D0F2C8 /* LightboardActions.swift in Sources */,
+				C692DDCD1F1BB07000D0F2C8 /* OutputActions.swift in Sources */,
 				C6A1FB941F172CF000A73DEB /* AppDelegate.swift in Sources */,
 				C6997ED11F1AD769006F57BB /* WorkingActions.swift in Sources */,
 				C692DDC51F1BA6A400D0F2C8 /* RotorActions.swift in Sources */,

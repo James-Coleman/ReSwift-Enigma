@@ -14,32 +14,19 @@ let mainStore = Store<AppState>(
 )
 
 struct AppState: StateType {
-//    let setupState: SetupState
-//    let workingState: WorkingState
     let rotorState: RotorState
     let plugboardState: PlugboardState
-    let lightboardState: LightboardState
+    let outputState: OutputState
+    let navigationState: NavigationState
 }
 
 func appReducer(action: Action, state: AppState?) -> AppState {
 //    log.debug("appReducer state: \(String(describing: state))")
     return AppState(
-//        setupState: setupReducer(action: action, state: state?.setupState),
-//        workingState: workingReducer(action: action, state: state?.workingState)
         rotorState: rotorReducer(action: action, state: state?.rotorState),
         plugboardState: plugboardReducer(action: action, state: state?.plugboardState),
-        lightboardState: lightboardReducer(action: action, state: state?.lightboardState)
+        outputState: outputReducer(action: action, state: state?.outputState),
+        navigationState: navigationReducer(action: action, state: state?.navigationState)
     )
 }
 
-struct AdvanceRotor: Action {
-    let rotor: RotorPosition
-    let advanceBy: Int
-}
-
-enum RotorPosition {
-    case
-    left,
-    centre,
-    right
-}

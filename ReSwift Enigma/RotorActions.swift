@@ -17,7 +17,18 @@ struct SetRotor: Action {
     let rotorNumber: Int
 }
 
+struct SetPinOffset: Action {
+    let rotor: RotorPosition
+    let pinOffset: Int
+}
+
 struct SetInitialPosition: Action {
     let rotor: RotorPosition
     let offset: Int
+}
+
+/// This can probably be safely removed.
+struct AdvanceRotor: Action {
+    let rotor: RotorPosition
+    let advanceBy: Int
 }

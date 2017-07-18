@@ -13,3 +13,5 @@ struct SelectLetter: Action {
 }
 
 struct ClearLetter: Action {}
+
+struct DeleteLetter: Action {}

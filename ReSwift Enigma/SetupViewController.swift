@@ -21,6 +21,7 @@ class SetupViewController: UIViewController {
     var plugboardLetters: [UITextField:String] = [:]
     
     @IBOutlet weak var reflectorAndRotors: UIPickerView!
+    @IBOutlet weak var pinOffset: UIPickerView!
     @IBOutlet weak var initialRotorOffset: UIPickerView!
     
     @IBOutlet weak var plugboardQ: UITextField!
@@ -51,6 +52,10 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var plugboardN: UITextField!
     @IBOutlet weak var plugboardM: UITextField!
     @IBOutlet weak var plugboardL: UITextField!
+    
+    @IBAction func startCoding(_ sender: UIBarButtonItem) {
+        mainStore.dispatch(NavigateTo(screen: .Code))
+    }
     
     @IBAction func plugboardEditingChanged(_ sender: UITextField) {
 //        log.info("Sender Text: \(sender.text)")
@@ -84,15 +89,29 @@ class SetupViewController: UIViewController {
         
 //        log.debug("Setup viewDidLoad")
         
-        mainStore.subscribe(self)
+//        mainStore.subscribe(self)
         
         reflectorAndRotors.delegate = self
         reflectorAndRotors.dataSource = self
+        
+        pinOffset.delegate = self
+        pinOffset.dataSource = self
         
         initialRotorOffset.delegate = self
         initialRotorOffset.dataSource = self
         
         plugboardLetters = [plugboardQ: "Q", plugboardW: "W", plugboardE: "E", plugboardR: "R", plugboardT: "T", plugboardZ: "Z", plugboardU: "U", plugboardI: "I", plugboardO: "O", plugboardA: "A", plugboardS: "S", plugboardD: "D", plugboardF: "F", plugboardG: "G", plugboardH: "H", plugboardJ: "J", plugboardK: "K", plugboardP: "P", plugboardY: "Y", plugboardX: "X", plugboardC: "C", plugboardV: "V", plugboardB: "B", plugboardN: "N", plugboardM: "M", plugboardL: "L"]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        log.debug("setup view will appear")
+        mainStore.subscribe(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        log.debug("setup view did appear")
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,6 +141,18 @@ extension SetupViewController: UIPickerViewDelegate {
                 break
         }
             
+        case pinOffset:
+            switch component {
+            case 0:
+                mainStore.dispatch(SetPinOffset(rotor: .left, pinOffset: row))
+            case 1:
+                mainStore.dispatch(SetPinOffset(rotor: .centre, pinOffset: row))
+            case 2:
+                mainStore.dispatch(SetPinOffset(rotor: .right, pinOffset: row))
+            default:
+                break
+            }
+            
         case initialRotorOffset:
             switch component {
             case 0:
@@ -148,7 +179,7 @@ extension SetupViewController: UIPickerViewDataSource {
         switch pickerView {
         case reflectorAndRotors:
             return 4
-        case initialRotorOffset:
+        case pinOffset, initialRotorOffset:
             return 3
         default:
             return 0
@@ -164,7 +195,7 @@ extension SetupViewController: UIPickerViewDataSource {
             default:
                 return reflectorRotorData[1].count
             }
-        case initialRotorOffset:
+        case pinOffset, initialRotorOffset:
             return alphabet.count
         default:
             return 0
@@ -181,6 +212,8 @@ extension SetupViewController: UIPickerViewDataSource {
             default:
                 return reflectorRotorData[1][row]
             }
+        case pinOffset:
+            return "\(alphabet[row])/\(row + 1)"
         case initialRotorOffset:
             return alphabet[row]
         default:
@@ -195,12 +228,18 @@ extension SetupViewController: StoreSubscriber {
 //        print("New state: ", state)
 //        log.verbose(state)
         
+        // Could implement 'if different' in all of this.
+        
         let rotorState = state.rotorState
         
         reflectorAndRotors.selectRow(rotorState.reflectorRow, inComponent: 0, animated: false)
         reflectorAndRotors.selectRow(rotorState.leftRotorRow, inComponent: 1, animated: false)
         reflectorAndRotors.selectRow(rotorState.centreRotorRow, inComponent: 2, animated: false)
         reflectorAndRotors.selectRow(rotorState.rightRotorRow, inComponent: 3, animated: false)
+        
+        pinOffset.selectRow(rotorState.leftRotorPin, inComponent: 0, animated: false)
+        pinOffset.selectRow(rotorState.centreRotorPin, inComponent: 1, animated: false)
+        pinOffset.selectRow(rotorState.rightRotorPin, inComponent: 2, animated: false)
         
         initialRotorOffset.selectRow(rotorState.leftRotorOffset, inComponent: 0, animated: false)
         initialRotorOffset.selectRow(rotorState.centreRotorOffset, inComponent: 1, animated: false)
@@ -236,5 +275,20 @@ extension SetupViewController: StoreSubscriber {
         plugboardN.text = plugboard["N"]
         plugboardM.text = plugboard["M"]
         plugboardL.text = plugboard["L"]
+        
+        guard let lastScreen = state.navigationState.navigationStack.last else {
+            log.error("Navigation stack is empty")
+            return
+        }
+        
+        if lastScreen != .Setup {
+            switch lastScreen {
+            case .Code:
+                let codeViewController = storyboard?.instantiateViewController(withIdentifier: "CodeViewController") as! CodeViewController
+                navigationController?.pushViewController(codeViewController, animated: true)
+            default:
+                break
+            }
+        }
     }
 }
