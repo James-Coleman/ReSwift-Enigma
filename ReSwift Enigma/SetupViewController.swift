@@ -16,8 +16,6 @@ class SetupViewController: UIViewController {
         ["I","II","III"]
     ]
     
-    let alphabet = ["A","B","C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-
     var plugboardLetters: [UITextField:String] = [:]
     
     @IBOutlet weak var reflectorAndRotors: UIPickerView!
@@ -33,7 +31,7 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var plugboardU: UITextField!
     @IBOutlet weak var plugboardI: UITextField!
     @IBOutlet weak var plugboardO: UITextField!
-
+    
     @IBOutlet weak var plugboardA: UITextField!
     @IBOutlet weak var plugboardS: UITextField!
     @IBOutlet weak var plugboardD: UITextField!
@@ -54,11 +52,11 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var plugboardL: UITextField!
     
     @IBAction func startCoding(_ sender: UIBarButtonItem) {
-        mainStore.dispatch(NavigateTo(screen: .Code))
+        mainStore.dispatch(NavigateTo(screen: .CodeViewController))
     }
     
     @IBAction func plugboardEditingChanged(_ sender: UITextField) {
-//        log.info("Sender Text: \(sender.text)")
+        //        log.info("Sender Text: \(sender.text)")
         
         let firstLetter = sender.text?.characters.first
         let firstLetterString = firstLetter == nil ? "" : String(describing: firstLetter!)
@@ -66,14 +64,14 @@ class SetupViewController: UIViewController {
         
         let plugboardLetter = plugboardLetters[sender] ?? ""
         
-//        log.debug("firstLetterUppercase: \(firstLetterUppercase)")
+        //        log.debug("firstLetterUppercase: \(firstLetterUppercase)")
         
-        if (firstLetterUppercase == "") || (alphabet.contains(firstLetterUppercase) == false) || (firstLetterUppercase == plugboardLetter) {
+        if (firstLetterUppercase == "") || (Data.alphabet.contains(firstLetterUppercase) == false) || (firstLetterUppercase == plugboardLetter) {
             // Clear the other textfield as well
-        
+            
             let clearedLetter = mainStore.state.plugboardState.plugboard[plugboardLetter] ?? ""
             
-//            log.debug("clearedLetter: \(clearedLetter)")
+            //            log.debug("clearedLetter: \(clearedLetter)")
             
             mainStore.dispatch(ClearPlugboardPorts(firstLetter: clearedLetter, secondLetter: plugboardLetter))
             
@@ -87,9 +85,9 @@ class SetupViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        log.debug("Setup viewDidLoad")
+        //        log.debug("Setup viewDidLoad")
         
-//        mainStore.subscribe(self)
+        //        mainStore.subscribe(self)
         
         reflectorAndRotors.delegate = self
         reflectorAndRotors.dataSource = self
@@ -105,26 +103,31 @@ class SetupViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        log.debug("setup view will appear")
+        //        log.debug("setup view will appear")
         mainStore.subscribe(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        log.debug("setup view did appear")
+        //        log.debug("setup view did appear")
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mainStore.unsubscribe(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
 extension SetupViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        print("row: \(row) in component: \(component)")
+        //        print("row: \(row) in component: \(component)")
         switch pickerView {
         case reflectorAndRotors:
             switch component {
@@ -139,7 +142,7 @@ extension SetupViewController: UIPickerViewDelegate {
                 mainStore.dispatch(SetRotor(rotor: .right, rotorNumber: row))
             default:
                 break
-        }
+            }
             
         case pinOffset:
             switch component {
@@ -157,8 +160,6 @@ extension SetupViewController: UIPickerViewDelegate {
             switch component {
             case 0:
                 mainStore.dispatch(SetInitialPosition(rotor: .left, offset: row))
-//                let difference = row - mainStore.state.setupState.leftInitialOffset
-//                mainStore.dispatch(AdvanceRotor(rotor: .left, advanceBy: difference))
             case 1:
                 mainStore.dispatch(SetInitialPosition(rotor: .centre, offset: row))
             case 2:
@@ -169,7 +170,7 @@ extension SetupViewController: UIPickerViewDelegate {
             
         default:
             break
-
+            
         }
     }
 }
@@ -196,7 +197,7 @@ extension SetupViewController: UIPickerViewDataSource {
                 return reflectorRotorData[1].count
             }
         case pinOffset, initialRotorOffset:
-            return alphabet.count
+            return Data.alphabetCount
         default:
             return 0
         }
@@ -213,9 +214,9 @@ extension SetupViewController: UIPickerViewDataSource {
                 return reflectorRotorData[1][row]
             }
         case pinOffset:
-            return "\(alphabet[row])/\(row + 1)"
+            return "\(Data.alphabet[row])/\(row + 1)"
         case initialRotorOffset:
-            return alphabet[row]
+            return Data.alphabet[row]
         default:
             return nil
         }
@@ -225,12 +226,44 @@ extension SetupViewController: UIPickerViewDataSource {
 
 extension SetupViewController: StoreSubscriber {
     func newState(state: AppState) {
-//        print("New state: ", state)
-//        log.verbose(state)
+        //        print("New state: ", state)
+        //        log.verbose(state)
         
         // Could implement 'if different' in all of this.
         
         let rotorState = state.rotorState
+        
+        let firstSubViews = pinOffset.subviews
+        
+//        log.debug(firstSubViews)
+        
+        if firstSubViews.count > 0 {
+            let secondSubviews = firstSubViews[0].subviews
+//            log.debug(secondSubviews)
+            
+            if secondSubviews.count > 0 {
+                let thirdSubviews = secondSubviews[0].subviews
+                
+                if thirdSubviews.count > 0 {
+                    let fourthSubviews = thirdSubviews[0].subviews
+                    
+//                    log.debug(fourthSubviews)
+                    
+                    if let tableView = fourthSubviews[0] as? UITableView {
+                        log.debug("table view")
+                        if tableView.isDragging {
+                            log.debug("table view is dragging")
+                        }
+                        
+                        if tableView.isDecelerating {
+                            log.debug("table view is decelerating")
+                        }
+                    }
+                }
+            }
+            
+        }
+        
         
         reflectorAndRotors.selectRow(rotorState.reflectorRow, inComponent: 0, animated: false)
         reflectorAndRotors.selectRow(rotorState.leftRotorRow, inComponent: 1, animated: false)
@@ -281,10 +314,10 @@ extension SetupViewController: StoreSubscriber {
             return
         }
         
-        if lastScreen != .Setup {
+        if lastScreen != .SetupViewController {
             switch lastScreen {
-            case .Code:
-                let codeViewController = storyboard?.instantiateViewController(withIdentifier: "CodeViewController") as! CodeViewController
+            case .CodeViewController:
+                let codeViewController = storyboard?.instantiateViewController(withIdentifier: Screen.CodeViewController.rawValue) as! CodeViewController
                 navigationController?.pushViewController(codeViewController, animated: true)
             default:
                 break

@@ -32,35 +32,35 @@ struct RotorState: StateType {
     
     var adjustedStepoverLeft: Int {
         var offset = leftRotor.stepover - leftRotorPin
-        if offset > 25 {
-            let remainder = offset % 26
+        if offset > Data.alphabetCount - 1 {
+            let remainder = offset % Data.alphabetCount
             offset = remainder
         }
         while offset < 0 {
-            offset += 26
+            offset += Data.alphabetCount
         }
         return offset
     }
     var adjustedStepoverCentre: Int {
         var offset = centreRotor.stepover - centreRotorPin
-        if offset > 25 {
-            let remainder = offset % 26
+        if offset > Data.alphabetCount - 1 {
+            let remainder = offset % Data.alphabetCount
             offset = remainder
         }
         while offset < 0 {
-            offset += 26
+            offset += Data.alphabetCount
         }
         return offset
     }
     var adjustedStepoverRight: Int {
         var offset = rightRotor.stepover - rightRotorPin
         log.debug("adjusted stepover right offset: \(offset), right stepover: \(rightRotor.stepover), right pin: \(rightRotorPin), current position: \(rightRotorOffset)")
-        if offset > 25 {
-            let remainder = offset % 26
+        if offset > Data.alphabetCount - 1 {
+            let remainder = offset % Data.alphabetCount
             offset = remainder
         }
         while offset < 0 {
-            offset += 26
+            offset += Data.alphabetCount
         }
         return offset
     }
@@ -70,73 +70,73 @@ struct RotorState: StateType {
     var adjustedLeftRotorOffset: Int {
         let stepAdjustment = leftRotorOffset == adjustedStepoverLeft ? 1 : 0
         var offset = leftRotorOffset + stepAdjustment - leftRotorPin
-        if offset > 25 {
-            let remainder = offset % 26
+        if offset > Data.alphabetCount - 1 {
+            let remainder = offset % Data.alphabetCount
             offset = remainder
         }
         // Don't think I need this while anymore, but keeping in for now for debugging.
         while offset < 0 {
-            offset += 26
+            offset += Data.alphabetCount
         }
         return offset
     }
     var adjustedCentreRotorOffset: Int {
         let stepAdjustment = leftRotorOffset == adjustedStepoverCentre ? 1 : 0
         var offset = centreRotorOffset + stepAdjustment - centreRotorPin
-        if offset > 25 {
-            let remainder = offset % 26
+        if offset > Data.alphabetCount - 1 {
+            let remainder = offset % Data.alphabetCount
             offset = remainder
         }
         while offset < 0 {
-            offset += 26
+            offset += Data.alphabetCount
         }
         return offset
     }
     var adjustedRightRotorOffset: Int {
         let stepAdjustment = 1 // Right rotor will always step over
         var offset = rightRotorOffset + stepAdjustment - rightRotorPin
-        if offset > 25 {
-            let remainder = offset % 26
+        if offset > Data.alphabetCount - 1 {
+            let remainder = offset % Data.alphabetCount
             offset = remainder
         }
         while offset < 0 {
-            offset += 26
+            offset += Data.alphabetCount
         }
         return offset
     }
     
     var reflector: Reflector {
-        return reflectors[reflectorRow]
+        return Data.reflectors[reflectorRow]
     }
     
     var leftRotor: Rotor {
-        return rotors[leftRotorRow]
+        return Data.rotors[leftRotorRow]
     }
     var centreRotor: Rotor {
-        return rotors[centreRotorRow]
+        return Data.rotors[centreRotorRow]
     }
     var rightRotor: Rotor {
-        return rotors[rightRotorRow]
+        return Data.rotors[rightRotorRow]
     }
     
     var leftWiring: [String:String] {
-        return advance(wiring: leftRotor.wiring, by: adjustedLeftRotorOffset)
+        return Helpers.advance(wiring: leftRotor.wiring, by: adjustedLeftRotorOffset)
     }
     var centreWiring: [String:String] {
-        return advance(wiring: centreRotor.wiring, by: adjustedCentreRotorOffset)
+        return Helpers.advance(wiring: centreRotor.wiring, by: adjustedCentreRotorOffset)
     }
     var rightWiring: [String:String] {
-        return advance(wiring: rightRotor.wiring, by: adjustedRightRotorOffset)
+        return Helpers.advance(wiring: rightRotor.wiring, by: adjustedRightRotorOffset)
     }
     
     var reverseLeftWiring: [String:String] {
-        return reverse(wiring: leftWiring)
+        return Helpers.reverse(wiring: leftWiring)
     }
     var reverseCentreWiring: [String:String] {
-        return reverse(wiring: centreWiring)
+        return Helpers.reverse(wiring: centreWiring)
     }
     var reverseRightWiring: [String:String] {
-        return reverse(wiring: rightWiring)
+        return Helpers.reverse(wiring: rightWiring)
     }
     
 }

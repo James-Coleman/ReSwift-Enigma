@@ -11,8 +11,6 @@ import ReSwift
 
 class CodeViewController: UIViewController {
     
-    let alphabet = ["A","B","C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    
     var lights: [String:UILabel] = [:]
     var keyLetters: [UIButton:String] = [:]
     
@@ -89,7 +87,7 @@ class CodeViewController: UIViewController {
     
     @IBAction func keyTouchDown(_ sender: UIButton) {
         guard let letter = keyLetters[sender] else { return }
-        guard let encodedLetter = encode(letter: letter) else { return }
+        guard let encodedLetter = Helpers.encode(letter) else { return }
         
         mainStore.dispatch(SelectLetter(letter: encodedLetter))
     }
@@ -101,96 +99,6 @@ class CodeViewController: UIViewController {
     @IBAction func keyTouchUpOutside(_ sender: UIButton) {
         mainStore.dispatch(ClearLetter())
     }
-    
-    func encode(letter: String) -> String? {
-        let rotorState = mainStore.state.rotorState
-        
-        let plugboard = mainStore.state.plugboardState.plugboard
-        
-        let rightWiring = rotorState.rightWiring
-        let centreWiring = rotorState.centreWiring
-        let leftWiring = rotorState.leftWiring
-        
-//        log.debug(rotorState.rightRotor.wiring)
-//        log.debug(rotorState.rightWiring)
-        
-        let reverseRightWiring = rotorState.reverseRightWiring
-        let reverseCentreWiring = rotorState.reverseCentreWiring
-        let reverseLeftWiring = rotorState.reverseLeftWiring
-        
-        guard let plugboardOutLetter = plugboard[letter] else {
-            log.error("no plugboard out letter from \(letter)")
-            return nil
-        }
-        
-        let actualPlugboardOutLetter = plugboardOutLetter == "" ? letter : plugboardOutLetter
-        
-        guard let rightLetter = rightWiring[actualPlugboardOutLetter] else {
-            log.error("no right letter from \(actualPlugboardOutLetter)")
-            return nil
-        }
-        guard let centreLetter = centreWiring[rightLetter] else {
-            log.error("no centre letter from \(rightLetter)")
-            return nil
-        }
-        guard let leftLetter = leftWiring[centreLetter] else {
-            log.error("no left letter from \(centreLetter)")
-            return nil
-        }
-        
-        guard let reflectedLetter = rotorState.reflector.wiring[leftLetter] else {
-            log.error("no reflected letter from \(leftLetter)")
-            return nil
-        }
-        
-        guard let reflectedLeftLetter = reverseLeftWiring[reflectedLetter] else {
-            log.error("no reflected left letter from \(reflectedLetter)")
-            return nil
-        }
-        guard let reflectedCentreLetter = reverseCentreWiring[reflectedLeftLetter] else {
-            log.error("no reflected centre letter from \(reflectedLeftLetter)")
-            return nil
-        }
-        guard let reflectedRightLetter = reverseRightWiring[reflectedCentreLetter] else {
-            log.error("no reflected right letter from \(reflectedCentreLetter)")
-            return nil
-        }
-        
-        guard let plugboardInLetter = plugboard[reflectedRightLetter] else {
-            log.error("no plugboard out letter from \(reflectedRightLetter)")
-            return nil
-        }
-        
-        let actualPlugboardInLetter = plugboardInLetter == "" ? reflectedRightLetter : plugboardInLetter
-        
-        log.info("\(letter), \(plugboardOutLetter), \(actualPlugboardOutLetter), \(rightLetter), \(centreLetter), \(leftLetter), \(reflectedLetter), \(reflectedLeftLetter), \(reflectedCentreLetter), \(reflectedRightLetter), \(plugboardInLetter), \(actualPlugboardInLetter)")
-        
-        return actualPlugboardInLetter
-    }
-    
-    /*
-    func encodeLetter(letter: String) -> String? {
-        let workingState = mainStore.state.workingState
-        
-        let rightRotorWiring = workingState.rightRotor.wiring
-        let centreRotorWiring = workingState.centreRotor.wiring
-        let leftRotorWiring = workingState.leftRotor.wiring
-        
-        let reflectorWiring = workingState.reflector.wiring
-        
-        guard let rightLetter = rightRotorWiring[letter] else { return nil }
-        guard let centreLetter = centreRotorWiring[rightLetter] else { return nil }
-        guard let leftLetter = leftRotorWiring[centreLetter] else { return nil }
-        
-        guard let reflectedLetter = reflectorWiring[leftLetter] else { return nil }
-        
-        guard let reflectedLeftLetter = leftRotorWiring[reflectedLetter] else { return nil }
-        guard let reflectedCentreLetter = centreRotorWiring[reflectedLeftLetter] else { return nil }
-        guard let reflectedRightLetter = rightRotorWiring[reflectedCentreLetter] else { return nil }
-        
-        return reflectedRightLetter
-    }
-    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -227,17 +135,6 @@ class CodeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension CodeViewController: UIPickerViewDataSource {
@@ -246,11 +143,11 @@ extension CodeViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return alphabet.count
+        return Data.alphabetCount
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return alphabet[row]
+        return Data.alphabet[row]
     }
 }
 

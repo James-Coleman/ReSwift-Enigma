@@ -16,11 +16,9 @@
 		C692DDCD1F1BB07000D0F2C8 /* OutputActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDCC1F1BB07000D0F2C8 /* OutputActions.swift */; };
 		C692DDCF1F1DD7D800D0F2C8 /* NavigationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDCE1F1DD7D800D0F2C8 /* NavigationReducer.swift */; };
 		C692DDD11F1DD92B00D0F2C8 /* NavigationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDD01F1DD92B00D0F2C8 /* NavigationActions.swift */; };
-		C6997ECB1F195599006F57BB /* SetupActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECA1F195599006F57BB /* SetupActions.swift */; };
-		C6997ECD1F1955FD006F57BB /* SetupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECC1F1955FD006F57BB /* SetupReducer.swift */; };
+		C692DDD31F1E9D8900D0F2C8 /* EnigmaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDD21F1E9D8900D0F2C8 /* EnigmaData.swift */; };
+		C692DDD51F1EA6A500D0F2C8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDD41F1EA6A500D0F2C8 /* Helpers.swift */; };
 		C6997ECF1F1ABB8B006F57BB /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */; };
-		C6997ED11F1AD769006F57BB /* WorkingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ED01F1AD769006F57BB /* WorkingActions.swift */; };
-		C6997ED41F1AD799006F57BB /* WorkingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6997ED31F1AD799006F57BB /* WorkingReducer.swift */; };
 		C6A1FB941F172CF000A73DEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A1FB931F172CF000A73DEB /* AppDelegate.swift */; };
 		C6A1FB961F172CF000A73DEB /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A1FB951F172CF000A73DEB /* SetupViewController.swift */; };
 		C6A1FB991F172CF000A73DEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A1FB971F172CF000A73DEB /* Main.storyboard */; };
@@ -41,11 +39,9 @@
 		C692DDCC1F1BB07000D0F2C8 /* OutputActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputActions.swift; sourceTree = "<group>"; };
 		C692DDCE1F1DD7D800D0F2C8 /* NavigationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationReducer.swift; sourceTree = "<group>"; };
 		C692DDD01F1DD92B00D0F2C8 /* NavigationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationActions.swift; sourceTree = "<group>"; };
-		C6997ECA1F195599006F57BB /* SetupActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupActions.swift; sourceTree = "<group>"; };
-		C6997ECC1F1955FD006F57BB /* SetupReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupReducer.swift; sourceTree = "<group>"; };
+		C692DDD21F1E9D8900D0F2C8 /* EnigmaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnigmaData.swift; sourceTree = "<group>"; };
+		C692DDD41F1EA6A500D0F2C8 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
-		C6997ED01F1AD769006F57BB /* WorkingActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingActions.swift; sourceTree = "<group>"; };
-		C6997ED31F1AD799006F57BB /* WorkingReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingReducer.swift; sourceTree = "<group>"; };
 		C6A1FB901F172CF000A73DEB /* ReSwift Enigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReSwift Enigma.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A1FB931F172CF000A73DEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A1FB951F172CF000A73DEB /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -80,12 +76,10 @@
 		C6997ED21F1AD787006F57BB /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				C6997ECA1F195599006F57BB /* SetupActions.swift */,
-				C6997ED01F1AD769006F57BB /* WorkingActions.swift */,
-				C692DDC41F1BA6A400D0F2C8 /* RotorActions.swift */,
-				C692DDCA1F1BAD7200D0F2C8 /* PlugboardActions.swift */,
-				C692DDCC1F1BB07000D0F2C8 /* OutputActions.swift */,
 				C692DDD01F1DD92B00D0F2C8 /* NavigationActions.swift */,
+				C692DDCC1F1BB07000D0F2C8 /* OutputActions.swift */,
+				C692DDCA1F1BAD7200D0F2C8 /* PlugboardActions.swift */,
+				C692DDC41F1BA6A400D0F2C8 /* RotorActions.swift */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -93,12 +87,10 @@
 		C6997ED51F1B6EF7006F57BB /* Reducers */ = {
 			isa = PBXGroup;
 			children = (
-				C6997ECC1F1955FD006F57BB /* SetupReducer.swift */,
-				C6997ED31F1AD799006F57BB /* WorkingReducer.swift */,
-				C692DDC21F1B972A00D0F2C8 /* RotorReducer.swift */,
 				C692DDCE1F1DD7D800D0F2C8 /* NavigationReducer.swift */,
-				C692DDC61F1BAC3300D0F2C8 /* PlugboardReducer.swift */,
 				C692DDC81F1BACEF00D0F2C8 /* OutputReducer.swift */,
+				C692DDC61F1BAC3300D0F2C8 /* PlugboardReducer.swift */,
+				C692DDC21F1B972A00D0F2C8 /* RotorReducer.swift */,
 			);
 			name = Reducers;
 			sourceTree = "<group>";
@@ -127,6 +119,8 @@
 				C6A1FB931F172CF000A73DEB /* AppDelegate.swift */,
 				C6A1FB951F172CF000A73DEB /* SetupViewController.swift */,
 				C6997ECE1F1ABB8B006F57BB /* CodeViewController.swift */,
+				C692DDD21F1E9D8900D0F2C8 /* EnigmaData.swift */,
+				C692DDD41F1EA6A500D0F2C8 /* Helpers.swift */,
 				C6A1FB971F172CF000A73DEB /* Main.storyboard */,
 				C6A1FB9A1F172CF000A73DEB /* Assets.xcassets */,
 				C6A1FB9C1F172CF000A73DEB /* LaunchScreen.storyboard */,
@@ -269,22 +263,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6997ECD1F1955FD006F57BB /* SetupReducer.swift in Sources */,
 				C6A1FBA61F172F4700A73DEB /* Store.swift in Sources */,
 				C692DDCB1F1BAD7200D0F2C8 /* PlugboardActions.swift in Sources */,
 				C692DDD11F1DD92B00D0F2C8 /* NavigationActions.swift in Sources */,
+				C692DDD31F1E9D8900D0F2C8 /* EnigmaData.swift in Sources */,
 				C692DDCF1F1DD7D800D0F2C8 /* NavigationReducer.swift in Sources */,
 				C692DDC71F1BAC3300D0F2C8 /* PlugboardReducer.swift in Sources */,
-				C6997ED41F1AD799006F57BB /* WorkingReducer.swift in Sources */,
 				C692DDC91F1BACEF00D0F2C8 /* OutputReducer.swift in Sources */,
 				C692DDC31F1B972A00D0F2C8 /* RotorReducer.swift in Sources */,
 				C6A1FB961F172CF000A73DEB /* SetupViewController.swift in Sources */,
 				C6997ECF1F1ABB8B006F57BB /* CodeViewController.swift in Sources */,
+				C692DDD51F1EA6A500D0F2C8 /* Helpers.swift in Sources */,
 				C692DDCD1F1BB07000D0F2C8 /* OutputActions.swift in Sources */,
 				C6A1FB941F172CF000A73DEB /* AppDelegate.swift in Sources */,
-				C6997ED11F1AD769006F57BB /* WorkingActions.swift in Sources */,
 				C692DDC51F1BA6A400D0F2C8 /* RotorActions.swift in Sources */,
-				C6997ECB1F195599006F57BB /* SetupActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

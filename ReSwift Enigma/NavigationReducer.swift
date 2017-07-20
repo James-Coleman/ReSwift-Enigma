@@ -9,12 +9,12 @@
 import ReSwift
 
 enum Screen: String {
-    case Setup
-    case Code
+    case SetupViewController
+    case CodeViewController
 }
 
 struct NavigationState {
-    var navigationStack: [Screen] = [.Setup]
+    var navigationStack: [Screen] = [.SetupViewController]
 }
 
 func navigationReducer(action: Action, state: NavigationState?) -> NavigationState {
