@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C692DDD91F214AB000D0F2C8"
+               BuildableName = "ReSwift Enigma Tests.xctest"
+               BlueprintName = "ReSwift Enigma Tests"
+               ReferencedContainer = "container:ReSwift Enigma.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

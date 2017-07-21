@@ -233,38 +233,6 @@ extension SetupViewController: StoreSubscriber {
         
         let rotorState = state.rotorState
         
-        let firstSubViews = pinOffset.subviews
-        
-//        log.debug(firstSubViews)
-        
-        if firstSubViews.count > 0 {
-            let secondSubviews = firstSubViews[0].subviews
-//            log.debug(secondSubviews)
-            
-            if secondSubviews.count > 0 {
-                let thirdSubviews = secondSubviews[0].subviews
-                
-                if thirdSubviews.count > 0 {
-                    let fourthSubviews = thirdSubviews[0].subviews
-                    
-//                    log.debug(fourthSubviews)
-                    
-                    if let tableView = fourthSubviews[0] as? UITableView {
-                        log.debug("table view")
-                        if tableView.isDragging {
-                            log.debug("table view is dragging")
-                        }
-                        
-                        if tableView.isDecelerating {
-                            log.debug("table view is decelerating")
-                        }
-                    }
-                }
-            }
-            
-        }
-        
-        
         reflectorAndRotors.selectRow(rotorState.reflectorRow, inComponent: 0, animated: false)
         reflectorAndRotors.selectRow(rotorState.leftRotorRow, inComponent: 1, animated: false)
         reflectorAndRotors.selectRow(rotorState.centreRotorRow, inComponent: 2, animated: false)

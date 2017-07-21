@@ -18,25 +18,25 @@ class Helpers {
         var varWiring = wiring
         
         for _ in 1...by {
-            //        print("\(varRotor) : varRotor start")
+                    log.verbose("\(varWiring) : varWiring start")
             
-            let nextRotorArray = varWiring.map { (key: String, value: String) -> [String:String] in
+            let nextWiringArray = varWiring.map { (key: String, value: String) -> [String:String] in
                 let nextLetter = Data.prevLetterDict[key]!
                 let nextValue = Data.prevLetterDict[value]!
                 return [nextLetter:nextValue]
             }
             //        print(nextRotorArray)
             
-            let nextRotor = nextRotorArray.reduce([:], { (dictionarySoFar, nextKeyValuePair) -> [String:String] in
+            let nextWiring = nextWiringArray.reduce([:], { (dictionarySoFar, nextKeyValuePair) -> [String:String] in
                 guard let first = nextKeyValuePair.first else { return [:] }
                 var varDictionarySoFar = dictionarySoFar
                 varDictionarySoFar[first.key] = first.value
                 return varDictionarySoFar
             })
             
-            //        print("\(nextRotor) : nextRotor")
+                    log.verbose("\(nextWiring) : nextWiring")
             
-            varWiring = nextRotor
+            varWiring = nextWiring
             
             //        print("\(varRotor) : varRotor")
         }
@@ -59,7 +59,7 @@ class Helpers {
         return reverseDict
     }
 
-    public static     func encode(_ letter: String) -> String? {
+    public static func encode(_ letter: String) -> String? {
         let rotorState = mainStore.state.rotorState
         
         let plugboard = mainStore.state.plugboardState.plugboard
