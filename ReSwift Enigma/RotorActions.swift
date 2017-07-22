@@ -26,9 +26,3 @@ struct SetInitialPosition: Action {
     let rotor: RotorPosition
     let offset: Int
 }
-
-/// This can probably be safely removed.
-struct AdvanceRotor: Action {
-    let rotor: RotorPosition
-    let advanceBy: Int
-}

@@ -133,7 +133,9 @@ class ReSwift_Enigma_Tests: XCTestCase {
         XCTAssert(actualReflectedPlugboardLetter    == "P")
     }
     
-    func testNavigationPush() {
+    // MARK: - Navigation Actions
+    
+    func testNavigateTo() {
         let beforeNavigationStack: [Screen] = [.SetupViewController]
         let afterNavigationStack: [Screen] = [.SetupViewController, .CodeViewController]
         
@@ -142,5 +144,128 @@ class ReSwift_Enigma_Tests: XCTestCase {
         mainStore.dispatch(NavigateTo(screen: .CodeViewController))
         
         XCTAssert(mainStore.state.navigationState.navigationStack == afterNavigationStack, "NavigateTo action has not affected navigation state correctly")
+    }
+    
+    func testPopBack() {
+        let beforeNavigationStack: [Screen] = [.SetupViewController]
+        let afterNavigationStack: [Screen] = [.SetupViewController, .CodeViewController]
+        
+        XCTAssert(mainStore.state.navigationState.navigationStack == beforeNavigationStack, "Initial navigation state does not equal expected value")
+        
+        mainStore.dispatch(NavigateTo(screen: .CodeViewController))
+        
+        XCTAssert(mainStore.state.navigationState.navigationStack == afterNavigationStack, "NavigateTo action has not affected navigation state correctly")
+        
+        mainStore.dispatch(PopBack())
+        
+        XCTAssert(mainStore.state.navigationState.navigationStack == beforeNavigationStack, "Last screen has not been removed from navigation state stack")
+    }
+    
+    // MARK: - Output Actions
+    
+    func testSelectLetter() {
+        let beforeOutputState = OutputState(currentLetter: nil, message: "")
+        
+        XCTAssert(mainStore.state.outputState == beforeOutputState, "Initial output state does not match expected values")
+        
+        let afterOutputState = OutputState(currentLetter: "A", message: "A")
+        
+        mainStore.dispatch(SelectLetter(letter: "A"))
+        
+        XCTAssert(mainStore.state.outputState == afterOutputState, "Dispatching a SelectLetter action has not updated the outputState correctly.")
+        
+        let lastOutputState = OutputState(currentLetter: "B", message: "AB")
+        
+        mainStore.dispatch(SelectLetter(letter: "B"))
+        
+        XCTAssert(mainStore.state.outputState == lastOutputState, "Dispatching another SelectLetter action has not properly updated the output state.")
+    }
+    
+    func testClearLetter() {
+        let beforeOutputState = OutputState(currentLetter: nil, message: "")
+        
+        XCTAssert(mainStore.state.outputState == beforeOutputState, "Initial output state does not match expected values")
+        
+        let afterOutputState = OutputState(currentLetter: "A", message: "A")
+        
+        mainStore.dispatch(SelectLetter(letter: "A"))
+        
+        XCTAssert(mainStore.state.outputState == afterOutputState, "Dispatching a SelectLetter action has not updated the outputState correctly.")
+        
+        mainStore.dispatch(ClearLetter())
+        
+        let lastState = OutputState(currentLetter: nil, message: "A")
+        
+        XCTAssert(mainStore.state.outputState == lastState, "ClearLetter action has not cleared the outputLetter of the output state")
+    }
+    
+    func testDeleteLetter() {
+        let beforeOutputState = OutputState(currentLetter: nil, message: "")
+        
+        XCTAssert(mainStore.state.outputState == beforeOutputState, "Initial output state does not match expected values")
+        
+        let afterOutputState = OutputState(currentLetter: "A", message: "A")
+        
+        mainStore.dispatch(SelectLetter(letter: "A"))
+        
+        XCTAssert(mainStore.state.outputState == afterOutputState, "Dispatching a SelectLetter action has not updated the outputState correctly.")
+        
+        mainStore.dispatch(DeleteLetter())
+        
+        XCTAssert(mainStore.state.outputState == beforeOutputState, "Delete Letter action has not reverted output state to it's original version.")
+    }
+    
+    // MARK: - Plugboard Actions
+    
+    func testSetPlugboard() {
+        let initialPlugboardState = PlugboardState()
+        
+        XCTAssert(mainStore.state.plugboardState == initialPlugboardState, "The initial plugboard state is not the expected default")
+        
+        mainStore.dispatch(SetPlugboard(firstLetter: "A", secondLetter: "B"))
+        
+        XCTAssert(mainStore.state.plugboardState.plugboard["A"] == "B")
+        XCTAssert(mainStore.state.plugboardState.plugboard["B"] == "A")
+        
+        mainStore.dispatch(SetPlugboard(firstLetter: "B", secondLetter: "C"))
+        
+        XCTAssert(mainStore.state.plugboardState.plugboard["B"] == "C")
+        XCTAssert(mainStore.state.plugboardState.plugboard["C"] == "B")
+        
+        XCTAssert(mainStore.state.plugboardState.plugboard["A"] == "", "'A' has not been reset to ''")
+    }
+    
+    func testClearPlugboardPorts() {
+        let initialPlugboardState = PlugboardState()
+        
+        XCTAssert(mainStore.state.plugboardState == initialPlugboardState, "The initial plugboard state is not the expected default")
+        
+        mainStore.dispatch(SetPlugboard(firstLetter: "A", secondLetter: "B"))
+        
+        XCTAssert(mainStore.state.plugboardState.plugboard["A"] == "B")
+        XCTAssert(mainStore.state.plugboardState.plugboard["B"] == "A")
+        
+        mainStore.dispatch(ClearPlugboardPorts(firstLetter: "A", secondLetter: "B"))
+        
+        XCTAssert(mainStore.state.plugboardState.plugboard["A"] == "", "Plugboard port 'A' has not been cleared")
+        XCTAssert(mainStore.state.plugboardState.plugboard["B"] == "", "Plugboard port 'B' has not been cleared")
+    }
+    
+    // MARK: - Rotor Actions
+    
+    func testSetReflector() {
+        
+    }
+    
+    func testSetRotor() {
+        
+    }
+    
+    func testSetPinOffset() {
+        
+    }
+    
+    func testSetInitialPosition() {
+        
     }
 }

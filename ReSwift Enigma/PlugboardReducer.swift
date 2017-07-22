@@ -12,6 +12,12 @@ struct PlugboardState: StateType {
     var plugboard: [String:String] = ["A":"", "B":"", "C":"", "D":"", "E":"", "F":"", "G":"", "H":"", "I":"", "J":"", "K":"", "L":"", "M":"", "N":"", "O":"", "P":"", "Q":"", "R":"", "S":"", "T":"", "U":"", "V":"", "W":"", "X":"", "Y":"", "Z":""]
 }
 
+extension PlugboardState: Equatable {
+    static func ==(lhs: PlugboardState, rhs: PlugboardState) -> Bool {
+        return lhs.plugboard == rhs.plugboard
+    }
+}
+
 func plugboardReducer(action: Action, state: PlugboardState?) -> PlugboardState {
     var state = state ?? PlugboardState()
     

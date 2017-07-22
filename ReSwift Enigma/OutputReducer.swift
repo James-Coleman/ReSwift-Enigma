@@ -11,6 +11,13 @@ import ReSwift
 struct OutputState: StateType {
     var currentLetter: String?
     var message: String = ""
+    
+}
+
+extension OutputState: Equatable {
+    static func == (lhs: OutputState, rhs: OutputState) -> Bool {
+        return lhs.currentLetter == rhs.currentLetter && lhs.message == rhs.message
+    }
 }
 
 func outputReducer(action: Action, state: OutputState?) -> OutputState {
