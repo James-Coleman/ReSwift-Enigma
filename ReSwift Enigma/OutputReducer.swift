@@ -15,7 +15,7 @@ struct OutputState: StateType {
 }
 
 extension OutputState: Equatable {
-    static func == (lhs: OutputState, rhs: OutputState) -> Bool {
+    static func ==(lhs: OutputState, rhs: OutputState) -> Bool {
         return lhs.currentLetter == rhs.currentLetter && lhs.message == rhs.message
     }
 }
@@ -23,8 +23,16 @@ extension OutputState: Equatable {
 func outputReducer(action: Action, state: OutputState?) -> OutputState {
     var state = state ?? OutputState()
     
+    let letterGrouping = 5
+    
     switch action {
     case let action as SelectLetter:
+        let spacelessMessage = state.message.characters.filter() { $0 != " " }
+        
+        if (spacelessMessage.count % letterGrouping == 0) && (spacelessMessage.count > 0) {
+            state.message += " "
+        }
+        
         state.currentLetter = action.letter
         state.message += action.letter
         
@@ -34,6 +42,11 @@ func outputReducer(action: Action, state: OutputState?) -> OutputState {
     case _ as DeleteLetter:
         var currentMessage = state.message.characters
         currentMessage.popLast()
+        
+        if currentMessage.last == " " {
+            currentMessage.popLast()
+        }
+        
         let newMessage = String(currentMessage)
         
         state.message = newMessage

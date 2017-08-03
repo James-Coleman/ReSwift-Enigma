@@ -6,7 +6,6 @@
 //  Copyright © 2017 James Coleman. All rights reserved.
 //
 
-import Foundation
 import XCTest
 @testable import ReSwift_Enigma
 
@@ -16,12 +15,12 @@ class ReSwift_Enigma_Tests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        mainStore.dispatch(DebugResetState())
     }
     
 //    func testExample() {
@@ -194,9 +193,9 @@ class ReSwift_Enigma_Tests: XCTestCase {
         
         mainStore.dispatch(ClearLetter())
         
-        let lastState = OutputState(currentLetter: nil, message: "A")
+        let lastOutputState = OutputState(currentLetter: nil, message: "A")
         
-        XCTAssert(mainStore.state.outputState == lastState, "ClearLetter action has not cleared the outputLetter of the output state")
+        XCTAssert(mainStore.state.outputState == lastOutputState, "ClearLetter action has not cleared the outputLetter of the output state")
     }
     
     func testDeleteLetter() {
@@ -212,7 +211,9 @@ class ReSwift_Enigma_Tests: XCTestCase {
         
         mainStore.dispatch(DeleteLetter())
         
-        XCTAssert(mainStore.state.outputState == beforeOutputState, "Delete Letter action has not reverted output state to it's original version.")
+        let lastOutputState = OutputState(currentLetter: "A", message: "")
+        
+        XCTAssert(mainStore.state.outputState == lastOutputState, "Delete Letter action has not reverted output state to it's original version.")
     }
     
     // MARK: - Plugboard Actions
@@ -242,8 +243,8 @@ class ReSwift_Enigma_Tests: XCTestCase {
         
         mainStore.dispatch(SetPlugboard(firstLetter: "A", secondLetter: "B"))
         
-        XCTAssert(mainStore.state.plugboardState.plugboard["A"] == "B")
-        XCTAssert(mainStore.state.plugboardState.plugboard["B"] == "A")
+        XCTAssert(mainStore.state.plugboardState.plugboard["A"] == "B", "Plugboard port 'A' has not been set correctly")
+        XCTAssert(mainStore.state.plugboardState.plugboard["B"] == "A", "Plugboard port 'B' has not been set correctly")
         
         mainStore.dispatch(ClearPlugboardPorts(firstLetter: "A", secondLetter: "B"))
         
@@ -254,18 +255,76 @@ class ReSwift_Enigma_Tests: XCTestCase {
     // MARK: - Rotor Actions
     
     func testSetReflector() {
+        let initialRotorState = RotorState()
         
+        XCTAssert(mainStore.state.rotorState == initialRotorState, "The initial rotor state is not the expected default")
+        
+        mainStore.dispatch(SetReflector(reflector: 2))
+        
+        let newRotorState = RotorState(reflectorRow: 2, leftRotorRow: 0, centreRotorRow: 1, rightRotorRow: 2, leftRotorPin: 0, centreRotorPin: 0, rightRotorPin: 0, leftRotorOffset: 0, centreRotorOffset: 0, rightRotorOffset: 0)
+        
+        XCTAssert(mainStore.state.rotorState == newRotorState, "Setting reflector has not updated the rotor state")
     }
     
     func testSetRotor() {
+        let initialRotorState = RotorState()
         
+        XCTAssert(mainStore.state.rotorState == initialRotorState, "The initial rotor state is not the expected default")
+        
+        mainStore.dispatch(SetRotor(rotor: .left, rotorNumber: 1))
+        
+        let newRotorState = RotorState(reflectorRow: 1, leftRotorRow: 1, centreRotorRow: 1, rightRotorRow: 2, leftRotorPin: 0, centreRotorPin: 0, rightRotorPin: 0, leftRotorOffset: 0, centreRotorOffset: 0, rightRotorOffset: 0)
+        
+        XCTAssert(mainStore.state.rotorState == newRotorState, "Setting left rotor has not updated the rotor state")
     }
     
     func testSetPinOffset() {
+        let initialRotorState = RotorState()
         
+        XCTAssert(mainStore.state.rotorState == initialRotorState, "The initial rotor state is not the expected default")
+        
+        mainStore.dispatch(SetPinOffset(rotor: .left, pinOffset: 1))
+        
+        let newRotorState = RotorState(reflectorRow: 1, leftRotorRow: 0, centreRotorRow: 1, rightRotorRow: 2, leftRotorPin: 1, centreRotorPin: 0, rightRotorPin: 0, leftRotorOffset: 0, centreRotorOffset: 0, rightRotorOffset: 0)
+        
+        XCTAssert(mainStore.state.rotorState == newRotorState, "Setting left rotor pin has not updated the rotor state")
     }
     
     func testSetInitialPosition() {
+        let initialRotorState = RotorState()
         
+        XCTAssert(mainStore.state.rotorState == initialRotorState, "The initial rotor state is not the expected default")
+        
+        mainStore.dispatch(SetInitialPosition(rotor: .left, offset: 1))
+        
+        let newRotorState = RotorState(reflectorRow: 1, leftRotorRow: 0, centreRotorRow: 1, rightRotorRow: 2, leftRotorPin: 0, centreRotorPin: 0, rightRotorPin: 0, leftRotorOffset: 1, centreRotorOffset: 0, rightRotorOffset: 0)
+        
+        XCTAssert(mainStore.state.rotorState == newRotorState, "Setting left rotor has not updated the rotor state")
+    }
+    
+    // MARK: - Generic tests
+    
+    func testDefaultBDZGO() {
+        // print(mainStore.state)
+        let initialRotorState = RotorState()
+        
+        XCTAssert(mainStore.state.rotorState == initialRotorState, "Initial rotor state is not the expected default")
+        
+        for _ in 1...5 {
+            guard let encodedLetter = Helpers.encode("A") else {
+                XCTAssert(false, "'A' could not be encoded")
+                return
+            }
+            
+            mainStore.dispatch(SelectLetter(letter: encodedLetter))
+        }
+        
+        let outputAfter = OutputState(currentLetter: "O", message: "BDZGO")
+        
+        XCTAssert(mainStore.state.outputState == outputAfter, "Output state does not match expected value")
+        
+        let rotorStateAfter = RotorState(reflectorRow: 1, leftRotorRow: 0, centreRotorRow: 1, rightRotorRow: 2, leftRotorPin: 0, centreRotorPin: 0, rightRotorPin: 0, leftRotorOffset: 0, centreRotorOffset: 0, rightRotorOffset: 5)
+        
+        XCTAssert(mainStore.state.rotorState == rotorStateAfter, "Selecting letters has not updated the rotor state")
     }
 }

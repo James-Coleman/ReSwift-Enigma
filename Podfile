@@ -10,3 +10,10 @@ target 'ReSwift Enigma' do
   pod 'SwiftyBeaver'
 
 end
+
+target 'ReSwift EnigmaUITests' do
+    use_frameworks!
+
+    pod 'ReSwift'
+
+end

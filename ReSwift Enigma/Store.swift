@@ -22,11 +22,24 @@ struct AppState: StateType {
 
 func appReducer(action: Action, state: AppState?) -> AppState {
 //    log.debug("appReducer state: \(String(describing: state))")
-    return AppState(
-        rotorState: rotorReducer(action: action, state: state?.rotorState),
-        plugboardState: plugboardReducer(action: action, state: state?.plugboardState),
-        outputState: outputReducer(action: action, state: state?.outputState),
-        navigationState: navigationReducer(action: action, state: state?.navigationState)
-    )
+    
+    switch action {
+    case _ as DebugResetState:
+        return AppState(
+            rotorState: RotorState(),
+            plugboardState: PlugboardState(),
+            outputState: OutputState(),
+            navigationState: NavigationState()
+        )
+    default:
+        return AppState(
+            rotorState: rotorReducer(action: action, state: state?.rotorState),
+            plugboardState: plugboardReducer(action: action, state: state?.plugboardState),
+            outputState: outputReducer(action: action, state: state?.outputState),
+            navigationState: navigationReducer(action: action, state: state?.navigationState)
+        )
+    }
+    
 }
 
+struct DebugResetState: Action {}

@@ -16,7 +16,7 @@ class SetupViewController: UIViewController {
         ["I","II","III"]
     ]
     
-    var plugboardLetters: [UITextField:String] = [:]
+    var plugboardLetters: [UITextField:String]!
     
     @IBOutlet weak var reflectorAndRotors: UIPickerView!
     @IBOutlet weak var pinOffset: UIPickerView!
@@ -51,6 +51,8 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var plugboardM: UITextField!
     @IBOutlet weak var plugboardL: UITextField!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
     @IBAction func startCoding(_ sender: UIBarButtonItem) {
         mainStore.dispatch(NavigateTo(screen: .CodeViewController))
     }
@@ -81,6 +83,20 @@ class SetupViewController: UIViewController {
         
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            // print("Show")
+            bottomConstraint.constant = keyboardSize.height + 8
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            // print("Hide")
+            bottomConstraint.constant = 8
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -98,7 +114,39 @@ class SetupViewController: UIViewController {
         initialRotorOffset.delegate = self
         initialRotorOffset.dataSource = self
         
+        plugboardQ.delegate = self
+        plugboardW.delegate = self
+        plugboardE.delegate = self
+        plugboardR.delegate = self
+        plugboardT.delegate = self
+        plugboardZ.delegate = self
+        plugboardU.delegate = self
+        plugboardI.delegate = self
+        plugboardO.delegate = self
+        
+        plugboardA.delegate = self
+        plugboardS.delegate = self
+        plugboardD.delegate = self
+        plugboardF.delegate = self
+        plugboardG.delegate = self
+        plugboardH.delegate = self
+        plugboardJ.delegate = self
+        plugboardK.delegate = self
+        
+        plugboardP.delegate = self
+        plugboardY.delegate = self
+        plugboardX.delegate = self
+        plugboardC.delegate = self
+        plugboardV.delegate = self
+        plugboardB.delegate = self
+        plugboardN.delegate = self
+        plugboardM.delegate = self
+        plugboardL.delegate = self
+        
         plugboardLetters = [plugboardQ: "Q", plugboardW: "W", plugboardE: "E", plugboardR: "R", plugboardT: "T", plugboardZ: "Z", plugboardU: "U", plugboardI: "I", plugboardO: "O", plugboardA: "A", plugboardS: "S", plugboardD: "D", plugboardF: "F", plugboardG: "G", plugboardH: "H", plugboardJ: "J", plugboardK: "K", plugboardP: "P", plugboardY: "Y", plugboardX: "X", plugboardC: "C", plugboardV: "V", plugboardB: "B", plugboardN: "N", plugboardM: "M", plugboardL: "L"]
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -291,5 +339,13 @@ extension SetupViewController: StoreSubscriber {
                 break
             }
         }
+    }
+}
+
+extension SetupViewController: UITextFieldDelegate {
+    // https://stackoverflow.com/questions/24180954/how-to-hide-keyboard-in-swift-on-pressing-return-key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
 }

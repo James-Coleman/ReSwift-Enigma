@@ -38,6 +38,26 @@
                ReferencedContainer = "container:ReSwift Enigma.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C692DDE71F2310FF00D0F2C8"
+               BuildableName = "ReSwift EnigmaUITests.xctest"
+               BlueprintName = "ReSwift EnigmaUITests"
+               ReferencedContainer = "container:ReSwift Enigma.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C692DDF51F23151200D0F2C8"
+               BuildableName = "ReSwift Enigma Fake UI Tests.xctest"
+               BlueprintName = "ReSwift Enigma Fake UI Tests"
+               ReferencedContainer = "container:ReSwift Enigma.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

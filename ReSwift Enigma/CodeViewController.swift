@@ -11,8 +11,8 @@ import ReSwift
 
 class CodeViewController: UIViewController {
     
-    var lights: [String:UILabel] = [:]
-    var keyLetters: [UIButton:String] = [:]
+    var lights: [String:UILabel]!
+    var keyLetters: [UIButton:String]!
     
     @IBOutlet weak var rotors: UIPickerView!
     

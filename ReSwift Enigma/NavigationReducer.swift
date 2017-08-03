@@ -17,6 +17,12 @@ struct NavigationState {
     var navigationStack: [Screen] = [.SetupViewController]
 }
 
+extension NavigationState: Equatable {
+    static func ==(lhs: NavigationState, rhs: NavigationState) -> Bool {
+        return lhs.navigationStack == rhs.navigationStack
+    }
+}
+
 func navigationReducer(action: Action, state: NavigationState?) -> NavigationState {
     var state = state ?? NavigationState()
     

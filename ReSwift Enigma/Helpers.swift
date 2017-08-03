@@ -18,7 +18,7 @@ class Helpers {
         var varWiring = wiring
         
         for _ in 1...by {
-                    log.verbose("\(varWiring) : varWiring start")
+            // log.verbose("\(varWiring) : varWiring start")
             
             let nextWiringArray = varWiring.map { (key: String, value: String) -> [String:String] in
                 let nextLetter = Data.prevLetterDict[key]!
@@ -34,7 +34,7 @@ class Helpers {
                 return varDictionarySoFar
             })
             
-                    log.verbose("\(nextWiring) : nextWiring")
+            // log.verbose("\(nextWiring) : nextWiring")
             
             varWiring = nextWiring
             
@@ -58,7 +58,7 @@ class Helpers {
         
         return reverseDict
     }
-
+    
     public static func encode(_ letter: String) -> String? {
         let rotorState = mainStore.state.rotorState
         

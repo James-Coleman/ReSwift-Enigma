@@ -54,7 +54,7 @@ struct RotorState: StateType {
     }
     var adjustedStepoverRight: Int {
         var offset = rightRotor.stepover - rightRotorPin
-        log.debug("adjusted stepover right offset: \(offset), right stepover: \(rightRotor.stepover), right pin: \(rightRotorPin), current position: \(rightRotorOffset)")
+        // log.debug("adjusted stepover right offset: \(offset), right stepover: \(rightRotor.stepover), right pin: \(rightRotorPin), current position: \(rightRotorOffset)")
         if offset > Data.alphabetCount - 1 {
             let remainder = offset % Data.alphabetCount
             offset = remainder
@@ -141,6 +141,26 @@ struct RotorState: StateType {
     
 }
 
+extension RotorState: Equatable {
+    static func ==(lhs: RotorState, rhs: RotorState) -> Bool {
+        guard lhs.reflectorRow      == rhs.reflectorRow         else { return false }
+        
+        guard lhs.leftRotorRow      == rhs.leftRotorRow         else { return false }
+        guard lhs.centreRotorRow    == rhs.centreRotorRow       else { return false }
+        guard lhs.rightRotorRow     == rhs.rightRotorRow        else { return false }
+        
+        guard lhs.leftRotorPin      == rhs.leftRotorPin         else { return false }
+        guard lhs.centreRotorPin    == rhs.centreRotorPin       else { return false }
+        guard lhs.rightRotorPin     == rhs.rightRotorPin        else { return false }
+        
+        guard lhs.leftRotorOffset   == rhs.leftRotorOffset      else { return false }
+        guard lhs.centreRotorOffset == rhs.centreRotorOffset    else { return false }
+        guard lhs.rightRotorOffset  == rhs.rightRotorOffset     else { return false }
+        
+        return true
+    }
+}
+
 func rotorReducer(action: Action, state: RotorState?) -> RotorState {
     var state = state ?? RotorState()
     
@@ -221,7 +241,7 @@ func rotorReducer(action: Action, state: RotorState?) -> RotorState {
         }
         
         if state.rightRotorOffset == state.rightRotor.stepover {
-            log.debug("just centre stepback")
+            // log.debug("just centre stepback")
             state.centreRotorOffset -= 1
             while state.centreRotorOffset < 0 {
                 state.centreRotorOffset += 26
@@ -230,7 +250,7 @@ func rotorReducer(action: Action, state: RotorState?) -> RotorState {
         
         
         if state.centreRotorOffset == state.centreRotor.stepover + 1 && state.rightRotorOffset == state.rightRotor.stepover + 1 {
-            log.debug("left and centre stepback")
+            // log.debug("left and centre stepback")
             state.leftRotorOffset -= 1
             while state.leftRotorOffset < 0 {
                 state.leftRotorOffset += 26
