@@ -7,38 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B2E92BF8AB279628473253A581B6AF4 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31598F53965395C1CCE9ECBD8083C9 /* Middleware.swift */; };
-		0C63396A88691B1B1920A734693316E8 /* Pods-ReSwift Enigma-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE3844E46C57ADD87EA814CB63DF1AA2 /* Pods-ReSwift Enigma-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0F2FB1202FBA2E922EFA497DF9E2C780 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C9DD7E5E620EEDEF5DC1040DB003A9 /* StoreType.swift */; };
-		1AF852169B8D58F454E51E4053337246 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C995FC6256F8A26AC11948B8CAEA0355 /* SwiftyBeaver.swift */; };
+		0B2E92BF8AB279628473253A581B6AF4 /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7559FA41163F0282C06B60E487DE5CBB /* Middleware.swift */; };
+		0C63396A88691B1B1920A734693316E8 /* Pods-ReSwift Enigma-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EB25D371706C2B4987573BF26AAC378 /* Pods-ReSwift Enigma-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0F2FB1202FBA2E922EFA497DF9E2C780 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E3FF8B906BA8977C8A53F2856B9E4 /* StoreType.swift */; };
+		1AF852169B8D58F454E51E4053337246 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F3603CF68CD14CBF916914E719EFE3 /* SwiftyBeaver.swift */; };
+		218B11888CA1103492A657BB8FAF2B5C /* Pods-ReSwift EnigmaUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FEF8C60D0840FCC0D61E6A44087544A5 /* Pods-ReSwift EnigmaUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22C9845AC317A5F177DF662E92E54B67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		24B8289F2F26BBCCC0A062B54551D3EB /* ReSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 246DF179B1ECC67037ABA40A600491F1 /* ReSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2D9F8F622D50862F1E36D1F70962C49E /* SwiftyBeaver-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D04B7710BB2ED2366046A4AB231C13C1 /* SwiftyBeaver-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2DD159832D504286517083119FDAE398 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B503D309F83666F93CEAE6A96EEE45 /* GoogleCloudDestination.swift */; };
-		2E1CC6F38EAD5922FA0221990EC2F01E /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5095B01E1C36C95183AFD73E84B56CCF /* TypeHelper.swift */; };
-		2F7D0AA1C3FA7EFBEEF5C46EBE4A7EC6 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61717DA7259D6FAB18D867F1E565B90 /* State.swift */; };
-		3826554782AB6D420F6428B0BA0B29CA /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339B52A2F74F2F23F3876A35B43CCE25 /* Assertions.swift */; };
-		436E6CC41DA3118F0DD52B96F284AA88 /* DispatchingStoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4123433F0A6A336BF21495B6EE188F2 /* DispatchingStoreType.swift */; };
-		4D02444B85D47A04D0616057C2254348 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EE0F7CAC75B60F4C007F18D22A8051 /* ConsoleDestination.swift */; };
-		5D7BF00C1B64192D75AFD8DAEE1F9E2B /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B887FE2AE2DE59287F5CCAA8CEF8186B /* Coding.swift */; };
-		76120A75210171D743AE83622E70034F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5F8AE0CA60B97FF5F1C7AABAAFA41 /* Action.swift */; };
-		83300B898D07E568062B5580750E47B6 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6FFF41199A4CF07D6784AE976B3AF0 /* AES256CBC.swift */; };
-		9217033F9B0169C7E3782E94EC83915B /* SwiftyBeaver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD6753BA0483EAD04D7ACA4E5157FE9 /* SwiftyBeaver-dummy.m */; };
-		92FF3B97C57FACDCC70DA725E021C5BB /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB13B911BFB571FD71F7CAFF3648C80A /* FileDestination.swift */; };
-		9999950FAF6975244BA5DA12BA533330 /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70721033367E81A41F21A0DD23273B0D /* StoreSubscriber.swift */; };
-		9CF0A6E57E5FE8398F885E0758263BA4 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA4C5969A3A444916DE5F1DD33C4B66 /* Subscription.swift */; };
-		AB8234F44D3181DF868D5DFBFE6D65D7 /* Pods-ReSwift Enigma-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB8D0F19FD7B5C307BC871CADD2C8A /* Pods-ReSwift Enigma-dummy.m */; };
+		24B8289F2F26BBCCC0A062B54551D3EB /* ReSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F205D0FD33CFFB56508E316B6D06F90 /* ReSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D9F8F622D50862F1E36D1F70962C49E /* SwiftyBeaver-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD58CC078C160AAE6B15E2F4580E2DBF /* SwiftyBeaver-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DD159832D504286517083119FDAE398 /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB2491696B7534FEABE94E0A6FF3492 /* GoogleCloudDestination.swift */; };
+		2E1CC6F38EAD5922FA0221990EC2F01E /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767FF7FECB11AAED33628AEACCF1B93 /* TypeHelper.swift */; };
+		2F7D0AA1C3FA7EFBEEF5C46EBE4A7EC6 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EE93B9778EEE82942C558B9DB5C17 /* State.swift */; };
+		3826554782AB6D420F6428B0BA0B29CA /* Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86FB73E9FC6DAEE43EEEFF089786988 /* Assertions.swift */; };
+		436E6CC41DA3118F0DD52B96F284AA88 /* DispatchingStoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B329C1E85B6B92EAC8174E1C7DA23D /* DispatchingStoreType.swift */; };
+		4D02444B85D47A04D0616057C2254348 /* ConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5FA622A05AD8C25BEC06104126B38C /* ConsoleDestination.swift */; };
+		5D7BF00C1B64192D75AFD8DAEE1F9E2B /* Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F3A218EBD412F808A326DE06F16BF6 /* Coding.swift */; };
+		73B71FCFF5957095C81020764C6E4ABC /* Pods-ReSwift EnigmaUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272D5BBBFDD4C98EFDAAAAFDA927F3AD /* Pods-ReSwift EnigmaUITests-dummy.m */; };
+		76120A75210171D743AE83622E70034F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4F0593536F9228DF5F35F83D56D07 /* Action.swift */; };
+		83300B898D07E568062B5580750E47B6 /* AES256CBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C70EC095DE8ADE111C24D3BC6D26C6E /* AES256CBC.swift */; };
+		9217033F9B0169C7E3782E94EC83915B /* SwiftyBeaver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D240B56097599B6F27E4A434B4CD4275 /* SwiftyBeaver-dummy.m */; };
+		92FF3B97C57FACDCC70DA725E021C5BB /* FileDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45BCD6047E0DCD1892359D5FCFE416 /* FileDestination.swift */; };
+		9999950FAF6975244BA5DA12BA533330 /* StoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F37D301A644C0014B5C7D3DE615722 /* StoreSubscriber.swift */; };
+		9CF0A6E57E5FE8398F885E0758263BA4 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C8273647FDFC7CA7D351DF27031AC2 /* Subscription.swift */; };
+		AB8234F44D3181DF868D5DFBFE6D65D7 /* Pods-ReSwift Enigma-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC24253F600D375289715858758460B /* Pods-ReSwift Enigma-dummy.m */; };
 		ABDF8790D9FF49136A7311D5071804D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		AEBAB0875EDFF72658A79D8E3171C174 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D57A83F68A3B3B50E078802762EEF9ED /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBE70B9CC6F73F4A82FC894F5CAD58 /* SBPlatformDestination.swift */; };
-		D84CB278B881E5F0018436AECC823869 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23CC5D5C291136B318F73C5DFDC5CFF /* Reducer.swift */; };
-		E267A727A3587B2E5691B0B762CF7FFF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78AF3B33E48D61A933DCC35D8F2EC55 /* Store.swift */; };
-		EF8721839BD3031D4A532716B567CBD8 /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8865338007F67865844DCE3FB1EBC /* BaseDestination.swift */; };
-		F437D50192E44A7F878763F3460B00AE /* ReSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BB0479433CF82046D8C81408FC8E3A /* ReSwift-dummy.m */; };
-		F7A480AA310D5908329B3503F6B8BEA2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9743349E5671FEDDA8EB83305FD4132 /* Filter.swift */; };
+		BB4B921277A3ADC2D68AB99D0B4E0FDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D57A83F68A3B3B50E078802762EEF9ED /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981A8FDE44FB99F0090BF3178724A2F /* SBPlatformDestination.swift */; };
+		D84CB278B881E5F0018436AECC823869 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011403F9595E93C155BF19C7CABE109B /* Reducer.swift */; };
+		E267A727A3587B2E5691B0B762CF7FFF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DC57AB78F8D10B339CCCFD886F7C1 /* Store.swift */; };
+		EF8721839BD3031D4A532716B567CBD8 /* BaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C71B5B999880235C2392AA2E2EBDF6F /* BaseDestination.swift */; };
+		F437D50192E44A7F878763F3460B00AE /* ReSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F5F3E9F3C5274E64718E147C861BF3 /* ReSwift-dummy.m */; };
+		F7A480AA310D5908329B3503F6B8BEA2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE4E0195BA85754236D8998C2E0B90 /* Filter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1E911EFEDE36EF894F5F39EC2C15C491 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 655835309F0368DD6E044AB7750A8C23;
+			remoteInfo = ReSwift;
+		};
 		A101BD366DCFA44139F0ED99CCE5EA49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -56,53 +66,65 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02B503D309F83666F93CEAE6A96EEE45 /* GoogleCloudDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleCloudDestination.swift; path = Sources/GoogleCloudDestination.swift; sourceTree = "<group>"; };
-		0A31598F53965395C1CCE9ECBD8083C9 /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = ReSwift/CoreTypes/Middleware.swift; sourceTree = "<group>"; };
-		0FEC625C04B0C82EEC6486B11D87E147 /* Pods-ReSwift Enigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReSwift Enigma.debug.xcconfig"; sourceTree = "<group>"; };
-		13BB0479433CF82046D8C81408FC8E3A /* ReSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReSwift-dummy.m"; sourceTree = "<group>"; };
-		1840D72B10ED8CBEBAEF39ECAF293763 /* SwiftyBeaver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-prefix.pch"; sourceTree = "<group>"; };
-		1AFDA65B8DDAB14132D6DB8ABAFFA0BC /* Pods_ReSwift_Enigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReSwift_Enigma.framework; path = "Pods-ReSwift Enigma.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		205E8944B91368742453126650B9FE0A /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyBeaver.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		246DF179B1ECC67037ABA40A600491F1 /* ReSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-umbrella.h"; sourceTree = "<group>"; };
-		2AF6468D2411837674FDD8BE168E0347 /* ReSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ReSwift.modulemap; sourceTree = "<group>"; };
-		31EE0F7CAC75B60F4C007F18D22A8051 /* ConsoleDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleDestination.swift; path = Sources/ConsoleDestination.swift; sourceTree = "<group>"; };
-		32EF54CFC80851AA8767DABF853DA88C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3385C93C48DBA4385BF1305E6B3A6E9C /* Pods-ReSwift Enigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReSwift Enigma.release.xcconfig"; sourceTree = "<group>"; };
-		339B52A2F74F2F23F3876A35B43CCE25 /* Assertions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assertions.swift; path = ReSwift/Utils/Assertions.swift; sourceTree = "<group>"; };
-		38DE9C1EED6E89FD5B3322988D2E19B9 /* SwiftyBeaver.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyBeaver.modulemap; sourceTree = "<group>"; };
-		3E52D4DF8E9C50C4497B2862D8C6C713 /* Pods-ReSwift Enigma-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReSwift Enigma-resources.sh"; sourceTree = "<group>"; };
-		42C9DD7E5E620EEDEF5DC1040DB003A9 /* StoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreType.swift; path = ReSwift/CoreTypes/StoreType.swift; sourceTree = "<group>"; };
-		44C4449C46FA905E1CDA4BCFDB357D6E /* Pods-ReSwift Enigma-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReSwift Enigma-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4DA4C5969A3A444916DE5F1DD33C4B66 /* Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = ReSwift/CoreTypes/Subscription.swift; sourceTree = "<group>"; };
-		5056B7A59DE71E1566FAB29570DEA13A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5095B01E1C36C95183AFD73E84B56CCF /* TypeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeHelper.swift; path = ReSwift/Utils/TypeHelper.swift; sourceTree = "<group>"; };
-		62483445A5E2D8E1506B6FBC810FF710 /* Pods-ReSwift Enigma-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReSwift Enigma-acknowledgements.plist"; sourceTree = "<group>"; };
+		011403F9595E93C155BF19C7CABE109B /* Reducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reducer.swift; path = ReSwift/CoreTypes/Reducer.swift; sourceTree = "<group>"; };
+		053EE93B9778EEE82942C558B9DB5C17 /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = ReSwift/CoreTypes/State.swift; sourceTree = "<group>"; };
+		05EF307384EB1BEE23C17FE6BF71C78B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09F5F3E9F3C5274E64718E147C861BF3 /* ReSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ReSwift-dummy.m"; sourceTree = "<group>"; };
+		15692F15CD3F5AB690D03EFD4C96C810 /* SwiftyBeaver.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyBeaver.modulemap; sourceTree = "<group>"; };
+		1767FF7FECB11AAED33628AEACCF1B93 /* TypeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypeHelper.swift; path = ReSwift/Utils/TypeHelper.swift; sourceTree = "<group>"; };
+		1CC24253F600D375289715858758460B /* Pods-ReSwift Enigma-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReSwift Enigma-dummy.m"; sourceTree = "<group>"; };
+		21F3603CF68CD14CBF916914E719EFE3 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyBeaver.swift; path = Sources/SwiftyBeaver.swift; sourceTree = "<group>"; };
+		22EAD8980965B67307FA95D06519B05C /* Pods-ReSwift EnigmaUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReSwift EnigmaUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		26F3A218EBD412F808A326DE06F16BF6 /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = ReSwift/Utils/Coding.swift; sourceTree = "<group>"; };
+		272D5BBBFDD4C98EFDAAAAFDA927F3AD /* Pods-ReSwift EnigmaUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReSwift EnigmaUITests-dummy.m"; sourceTree = "<group>"; };
+		28E9ADDE3A9BF9C08FCB443AF13434DD /* Pods_ReSwift_Enigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReSwift_Enigma.framework; path = "Pods-ReSwift Enigma.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F205D0FD33CFFB56508E316B6D06F90 /* ReSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-umbrella.h"; sourceTree = "<group>"; };
+		2F2E521DDFF2A26BAF27BD8F9CF86B30 /* Pods-ReSwift EnigmaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReSwift EnigmaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		368E3FF8B906BA8977C8A53F2856B9E4 /* StoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreType.swift; path = ReSwift/CoreTypes/StoreType.swift; sourceTree = "<group>"; };
+		38F37D301A644C0014B5C7D3DE615722 /* StoreSubscriber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreSubscriber.swift; path = ReSwift/CoreTypes/StoreSubscriber.swift; sourceTree = "<group>"; };
+		3981A8FDE44FB99F0090BF3178724A2F /* SBPlatformDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SBPlatformDestination.swift; path = Sources/SBPlatformDestination.swift; sourceTree = "<group>"; };
+		3C71B5B999880235C2392AA2E2EBDF6F /* BaseDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseDestination.swift; path = Sources/BaseDestination.swift; sourceTree = "<group>"; };
+		3EB25D371706C2B4987573BF26AAC378 /* Pods-ReSwift Enigma-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReSwift Enigma-umbrella.h"; sourceTree = "<group>"; };
+		3F915A0A87E8B266B4A2C9096425A8C8 /* ReSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReSwift.framework; path = ReSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48908C048F673D8576E2D2DD82F8BB73 /* Pods-ReSwift EnigmaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReSwift EnigmaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		48CDA04FB0188EE354BBFBAB5D594335 /* Pods-ReSwift EnigmaUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReSwift EnigmaUITests-frameworks.sh"; sourceTree = "<group>"; };
+		4C70EC095DE8ADE111C24D3BC6D26C6E /* AES256CBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES256CBC.swift; path = Sources/AES256CBC.swift; sourceTree = "<group>"; };
+		4CF90212BF873790D54D2D530DD92E4F /* Pods-ReSwift Enigma-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ReSwift Enigma-acknowledgements.markdown"; sourceTree = "<group>"; };
+		543D85112676BD328A1E850613C45167 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-9/iOS/RevealServer.framework"; sourceTree = "<group>"; };
+		547E54B84AB04E5616641627DC7398C6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57C8273647FDFC7CA7D351DF27031AC2 /* Subscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subscription.swift; path = ReSwift/CoreTypes/Subscription.swift; sourceTree = "<group>"; };
+		5D45BCD6047E0DCD1892359D5FCFE416 /* FileDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileDestination.swift; path = Sources/FileDestination.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		70721033367E81A41F21A0DD23273B0D /* StoreSubscriber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoreSubscriber.swift; path = ReSwift/CoreTypes/StoreSubscriber.swift; sourceTree = "<group>"; };
-		7FCB8D0F19FD7B5C307BC871CADD2C8A /* Pods-ReSwift Enigma-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ReSwift Enigma-dummy.m"; sourceTree = "<group>"; };
+		69B329C1E85B6B92EAC8174E1C7DA23D /* DispatchingStoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchingStoreType.swift; path = ReSwift/CoreTypes/DispatchingStoreType.swift; sourceTree = "<group>"; };
+		6F122DF8DCE47D6949AC8DD5D956CA72 /* Pods_ReSwift_EnigmaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ReSwift_EnigmaUITests.framework; path = "Pods-ReSwift EnigmaUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F5DBFD5006B9664A0434DA249DD7BE7 /* SwiftyBeaver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyBeaver.xcconfig; sourceTree = "<group>"; };
+		744C207506B2825EA75ECDB9C1628235 /* ReSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-prefix.pch"; sourceTree = "<group>"; };
+		7559FA41163F0282C06B60E487DE5CBB /* Middleware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = ReSwift/CoreTypes/Middleware.swift; sourceTree = "<group>"; };
+		777632C5E694D125A3B8C7747A101C9E /* Pods-ReSwift EnigmaUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ReSwift EnigmaUITests.modulemap"; sourceTree = "<group>"; };
+		7BB2491696B7534FEABE94E0A6FF3492 /* GoogleCloudDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleCloudDestination.swift; path = Sources/GoogleCloudDestination.swift; sourceTree = "<group>"; };
+		80BC445D304E53531DBBBBDD8155CCF7 /* ReSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReSwift.xcconfig; sourceTree = "<group>"; };
+		870966444583C3E0E9F8244065F94CA5 /* Pods-ReSwift Enigma-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReSwift Enigma-resources.sh"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A9FC6B841D3205CFD5479B9E0D478520 /* SwiftyBeaver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyBeaver.xcconfig; sourceTree = "<group>"; };
-		B4123433F0A6A336BF21495B6EE188F2 /* DispatchingStoreType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchingStoreType.swift; path = ReSwift/CoreTypes/DispatchingStoreType.swift; sourceTree = "<group>"; };
-		B78AF3B33E48D61A933DCC35D8F2EC55 /* Store.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Store.swift; path = ReSwift/CoreTypes/Store.swift; sourceTree = "<group>"; };
-		B887FE2AE2DE59287F5CCAA8CEF8186B /* Coding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Coding.swift; path = ReSwift/Utils/Coding.swift; sourceTree = "<group>"; };
-		BE3844E46C57ADD87EA814CB63DF1AA2 /* Pods-ReSwift Enigma-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReSwift Enigma-umbrella.h"; sourceTree = "<group>"; };
-		C2322CD74CBEC3089FE301B2A62C1624 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C77DDE164C75673665D5CCB2E7E2804B /* ReSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ReSwift-prefix.pch"; sourceTree = "<group>"; };
-		C995FC6256F8A26AC11948B8CAEA0355 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyBeaver.swift; path = Sources/SwiftyBeaver.swift; sourceTree = "<group>"; };
-		CB13B911BFB571FD71F7CAFF3648C80A /* FileDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileDestination.swift; path = Sources/FileDestination.swift; sourceTree = "<group>"; };
-		CBD6753BA0483EAD04D7ACA4E5157FE9 /* SwiftyBeaver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyBeaver-dummy.m"; sourceTree = "<group>"; };
-		D04B7710BB2ED2366046A4AB231C13C1 /* SwiftyBeaver-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-umbrella.h"; sourceTree = "<group>"; };
-		DC0896D41634346D14BFBDBB64C37109 /* Pods-ReSwift Enigma-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReSwift Enigma-frameworks.sh"; sourceTree = "<group>"; };
-		DC6FFF41199A4CF07D6784AE976B3AF0 /* AES256CBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES256CBC.swift; path = Sources/AES256CBC.swift; sourceTree = "<group>"; };
-		DDB8865338007F67865844DCE3FB1EBC /* BaseDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseDestination.swift; path = Sources/BaseDestination.swift; sourceTree = "<group>"; };
-		E23CC5D5C291136B318F73C5DFDC5CFF /* Reducer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reducer.swift; path = ReSwift/CoreTypes/Reducer.swift; sourceTree = "<group>"; };
-		E4E5F8AE0CA60B97FF5F1C7AABAAFA41 /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = ReSwift/CoreTypes/Action.swift; sourceTree = "<group>"; };
-		E4FC22303900838D3589E537EA205AF2 /* Pods-ReSwift Enigma.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ReSwift Enigma.modulemap"; sourceTree = "<group>"; };
-		E9743349E5671FEDDA8EB83305FD4132 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
-		F0BB06F252DCC87597468B04D42B2AA5 /* ReSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ReSwift.framework; path = ReSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F61717DA7259D6FAB18D867F1E565B90 /* State.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = State.swift; path = ReSwift/CoreTypes/State.swift; sourceTree = "<group>"; };
-		FBCD8801234885DED48D9A5D48C8882E /* ReSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ReSwift.xcconfig; sourceTree = "<group>"; };
-		FCCBE70B9CC6F73F4A82FC894F5CAD58 /* SBPlatformDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SBPlatformDestination.swift; path = Sources/SBPlatformDestination.swift; sourceTree = "<group>"; };
+		995EBC22F3A6AF2F0749450AFDCDC6A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EA4C0746ED2127E622DA3304253A541 /* Pods-ReSwift EnigmaUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReSwift EnigmaUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B4A4F0593536F9228DF5F35F83D56D07 /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Action.swift; path = ReSwift/CoreTypes/Action.swift; sourceTree = "<group>"; };
+		B86FB73E9FC6DAEE43EEEFF089786988 /* Assertions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assertions.swift; path = ReSwift/Utils/Assertions.swift; sourceTree = "<group>"; };
+		BA5FA622A05AD8C25BEC06104126B38C /* ConsoleDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleDestination.swift; path = Sources/ConsoleDestination.swift; sourceTree = "<group>"; };
+		C27397B238CCB171846232DBDEFF9391 /* Pods-ReSwift Enigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReSwift Enigma.release.xcconfig"; sourceTree = "<group>"; };
+		C32606B492AEC5B89B704A700006B886 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyBeaver.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD58CC078C160AAE6B15E2F4580E2DBF /* SwiftyBeaver-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-umbrella.h"; sourceTree = "<group>"; };
+		D240B56097599B6F27E4A434B4CD4275 /* SwiftyBeaver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyBeaver-dummy.m"; sourceTree = "<group>"; };
+		DB294ADC63634B36E3E32CA057FC7450 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7DC57AB78F8D10B339CCCFD886F7C1 /* Store.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Store.swift; path = ReSwift/CoreTypes/Store.swift; sourceTree = "<group>"; };
+		E36606B16C45458EF2CD613B9FAE66E5 /* ReSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ReSwift.modulemap; sourceTree = "<group>"; };
+		EB70A4833D24084028F5DBB5A4E43343 /* Pods-ReSwift Enigma-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReSwift Enigma-frameworks.sh"; sourceTree = "<group>"; };
+		F2841C279351AD06496E067F428494C7 /* Pods-ReSwift Enigma-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ReSwift Enigma-acknowledgements.plist"; sourceTree = "<group>"; };
+		F8CE4E0195BA85754236D8998C2E0B90 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		FB465E3B1C20B57E88A8900E707A5828 /* Pods-ReSwift EnigmaUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ReSwift EnigmaUITests-resources.sh"; sourceTree = "<group>"; };
+		FC8CC973967A4FF4D8315945E899157B /* Pods-ReSwift Enigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ReSwift Enigma.debug.xcconfig"; sourceTree = "<group>"; };
+		FEBF8856E9C76E7BB8A9B13B8E39665F /* SwiftyBeaver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-prefix.pch"; sourceTree = "<group>"; };
+		FEF8C60D0840FCC0D61E6A44087544A5 /* Pods-ReSwift EnigmaUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ReSwift EnigmaUITests-umbrella.h"; sourceTree = "<group>"; };
+		FF5D776B728957046FCAA63FBA02E75D /* Pods-ReSwift Enigma.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ReSwift Enigma.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,62 +152,108 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD28B86C785433A2A32C2E0E6B7154ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB4B921277A3ADC2D68AB99D0B4E0FDA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E67430B7428F0BB52957867F9C9253D /* ReSwift */ = {
+		08EB9FEA8283A6EE70098A8FCD6B6888 /* ReSwift */ = {
 			isa = PBXGroup;
 			children = (
-				E4E5F8AE0CA60B97FF5F1C7AABAAFA41 /* Action.swift */,
-				339B52A2F74F2F23F3876A35B43CCE25 /* Assertions.swift */,
-				B887FE2AE2DE59287F5CCAA8CEF8186B /* Coding.swift */,
-				B4123433F0A6A336BF21495B6EE188F2 /* DispatchingStoreType.swift */,
-				0A31598F53965395C1CCE9ECBD8083C9 /* Middleware.swift */,
-				E23CC5D5C291136B318F73C5DFDC5CFF /* Reducer.swift */,
-				F61717DA7259D6FAB18D867F1E565B90 /* State.swift */,
-				B78AF3B33E48D61A933DCC35D8F2EC55 /* Store.swift */,
-				70721033367E81A41F21A0DD23273B0D /* StoreSubscriber.swift */,
-				42C9DD7E5E620EEDEF5DC1040DB003A9 /* StoreType.swift */,
-				4DA4C5969A3A444916DE5F1DD33C4B66 /* Subscription.swift */,
-				5095B01E1C36C95183AFD73E84B56CCF /* TypeHelper.swift */,
-				89B7006656263CC3024C7B383781318C /* Support Files */,
+				B4A4F0593536F9228DF5F35F83D56D07 /* Action.swift */,
+				B86FB73E9FC6DAEE43EEEFF089786988 /* Assertions.swift */,
+				26F3A218EBD412F808A326DE06F16BF6 /* Coding.swift */,
+				69B329C1E85B6B92EAC8174E1C7DA23D /* DispatchingStoreType.swift */,
+				7559FA41163F0282C06B60E487DE5CBB /* Middleware.swift */,
+				011403F9595E93C155BF19C7CABE109B /* Reducer.swift */,
+				053EE93B9778EEE82942C558B9DB5C17 /* State.swift */,
+				DC7DC57AB78F8D10B339CCCFD886F7C1 /* Store.swift */,
+				38F37D301A644C0014B5C7D3DE615722 /* StoreSubscriber.swift */,
+				368E3FF8B906BA8977C8A53F2856B9E4 /* StoreType.swift */,
+				57C8273647FDFC7CA7D351DF27031AC2 /* Subscription.swift */,
+				1767FF7FECB11AAED33628AEACCF1B93 /* TypeHelper.swift */,
+				C4727B6F3A5A7F773A194119400FE1B1 /* Support Files */,
 			);
 			name = ReSwift;
 			path = ReSwift;
 			sourceTree = "<group>";
 		};
-		2DD26D2D245816DA13AF808FD50C4221 /* SwiftyBeaver */ = {
+		138ABA2DAB9334D3CBF8D95BC0EF7A32 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DC6FFF41199A4CF07D6784AE976B3AF0 /* AES256CBC.swift */,
-				DDB8865338007F67865844DCE3FB1EBC /* BaseDestination.swift */,
-				31EE0F7CAC75B60F4C007F18D22A8051 /* ConsoleDestination.swift */,
-				CB13B911BFB571FD71F7CAFF3648C80A /* FileDestination.swift */,
-				E9743349E5671FEDDA8EB83305FD4132 /* Filter.swift */,
-				02B503D309F83666F93CEAE6A96EEE45 /* GoogleCloudDestination.swift */,
-				FCCBE70B9CC6F73F4A82FC894F5CAD58 /* SBPlatformDestination.swift */,
-				C995FC6256F8A26AC11948B8CAEA0355 /* SwiftyBeaver.swift */,
-				F9D5829AB6B092E91B3A14E646A8D2B3 /* Support Files */,
-			);
-			name = SwiftyBeaver;
-			path = SwiftyBeaver;
-			sourceTree = "<group>";
-		};
-		5524D94072D711E495D68C445DEBDB8E /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CFF7551F56003EC39D27E16DA5636A5F /* Pods-ReSwift Enigma */,
+				CF1838AC3F237FB2BAB434838665BF33 /* Pods-ReSwift Enigma */,
+				7B39CD705555F5597C2895A5AA67F251 /* Pods-ReSwift EnigmaUITests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		69D71E30803C775111853D7DB6E1E501 /* Pods */ = {
+		1FCB85ED49D89F93603155559469ACE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E67430B7428F0BB52957867F9C9253D /* ReSwift */,
-				2DD26D2D245816DA13AF808FD50C4221 /* SwiftyBeaver */,
+				28E9ADDE3A9BF9C08FCB443AF13434DD /* Pods_ReSwift_Enigma.framework */,
+				6F122DF8DCE47D6949AC8DD5D956CA72 /* Pods_ReSwift_EnigmaUITests.framework */,
+				3F915A0A87E8B266B4A2C9096425A8C8 /* ReSwift.framework */,
+				C32606B492AEC5B89B704A700006B886 /* SwiftyBeaver.framework */,
 			);
-			name = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5988698B66EBA263EF2946A89DA572DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				543D85112676BD328A1E850613C45167 /* RevealServer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		667853930626BF7D481C5A3C977B19CB /* Reveal-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				5988698B66EBA263EF2946A89DA572DE /* Frameworks */,
+			);
+			name = "Reveal-SDK";
+			path = "Reveal-SDK";
+			sourceTree = "<group>";
+		};
+		7B39CD705555F5597C2895A5AA67F251 /* Pods-ReSwift EnigmaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				995EBC22F3A6AF2F0749450AFDCDC6A0 /* Info.plist */,
+				777632C5E694D125A3B8C7747A101C9E /* Pods-ReSwift EnigmaUITests.modulemap */,
+				22EAD8980965B67307FA95D06519B05C /* Pods-ReSwift EnigmaUITests-acknowledgements.markdown */,
+				9EA4C0746ED2127E622DA3304253A541 /* Pods-ReSwift EnigmaUITests-acknowledgements.plist */,
+				272D5BBBFDD4C98EFDAAAAFDA927F3AD /* Pods-ReSwift EnigmaUITests-dummy.m */,
+				48CDA04FB0188EE354BBFBAB5D594335 /* Pods-ReSwift EnigmaUITests-frameworks.sh */,
+				FB465E3B1C20B57E88A8900E707A5828 /* Pods-ReSwift EnigmaUITests-resources.sh */,
+				FEF8C60D0840FCC0D61E6A44087544A5 /* Pods-ReSwift EnigmaUITests-umbrella.h */,
+				2F2E521DDFF2A26BAF27BD8F9CF86B30 /* Pods-ReSwift EnigmaUITests.debug.xcconfig */,
+				48908C048F673D8576E2D2DD82F8BB73 /* Pods-ReSwift EnigmaUITests.release.xcconfig */,
+			);
+			name = "Pods-ReSwift EnigmaUITests";
+			path = "Target Support Files/Pods-ReSwift EnigmaUITests";
+			sourceTree = "<group>";
+		};
+		7D5B9549448E2540B6AFEDE51AEBB1A4 /* SwiftyBeaver */ = {
+			isa = PBXGroup;
+			children = (
+				4C70EC095DE8ADE111C24D3BC6D26C6E /* AES256CBC.swift */,
+				3C71B5B999880235C2392AA2E2EBDF6F /* BaseDestination.swift */,
+				BA5FA622A05AD8C25BEC06104126B38C /* ConsoleDestination.swift */,
+				5D45BCD6047E0DCD1892359D5FCFE416 /* FileDestination.swift */,
+				F8CE4E0195BA85754236D8998C2E0B90 /* Filter.swift */,
+				7BB2491696B7534FEABE94E0A6FF3492 /* GoogleCloudDestination.swift */,
+				3981A8FDE44FB99F0090BF3178724A2F /* SBPlatformDestination.swift */,
+				21F3603CF68CD14CBF916914E719EFE3 /* SwiftyBeaver.swift */,
+				E4BFC30AC88BB9FE9A70FB1F776391E8 /* Support Files */,
+			);
+			name = SwiftyBeaver;
+			path = SwiftyBeaver;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -193,24 +261,10 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				69D71E30803C775111853D7DB6E1E501 /* Pods */,
-				FD9968FE58A04E7731D1FFF68255F2EE /* Products */,
-				5524D94072D711E495D68C445DEBDB8E /* Targets Support Files */,
+				F7CB69C8D0B12BDEBB701F47EDDFF7BC /* Pods */,
+				1FCB85ED49D89F93603155559469ACE4 /* Products */,
+				138ABA2DAB9334D3CBF8D95BC0EF7A32 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		89B7006656263CC3024C7B383781318C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C2322CD74CBEC3089FE301B2A62C1624 /* Info.plist */,
-				2AF6468D2411837674FDD8BE168E0347 /* ReSwift.modulemap */,
-				FBCD8801234885DED48D9A5D48C8882E /* ReSwift.xcconfig */,
-				13BB0479433CF82046D8C81408FC8E3A /* ReSwift-dummy.m */,
-				C77DDE164C75673665D5CCB2E7E2804B /* ReSwift-prefix.pch */,
-				246DF179B1ECC67037ABA40A600491F1 /* ReSwift-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ReSwift";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -221,19 +275,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CFF7551F56003EC39D27E16DA5636A5F /* Pods-ReSwift Enigma */ = {
+		C4727B6F3A5A7F773A194119400FE1B1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				32EF54CFC80851AA8767DABF853DA88C /* Info.plist */,
-				E4FC22303900838D3589E537EA205AF2 /* Pods-ReSwift Enigma.modulemap */,
-				44C4449C46FA905E1CDA4BCFDB357D6E /* Pods-ReSwift Enigma-acknowledgements.markdown */,
-				62483445A5E2D8E1506B6FBC810FF710 /* Pods-ReSwift Enigma-acknowledgements.plist */,
-				7FCB8D0F19FD7B5C307BC871CADD2C8A /* Pods-ReSwift Enigma-dummy.m */,
-				DC0896D41634346D14BFBDBB64C37109 /* Pods-ReSwift Enigma-frameworks.sh */,
-				3E52D4DF8E9C50C4497B2862D8C6C713 /* Pods-ReSwift Enigma-resources.sh */,
-				BE3844E46C57ADD87EA814CB63DF1AA2 /* Pods-ReSwift Enigma-umbrella.h */,
-				0FEC625C04B0C82EEC6486B11D87E147 /* Pods-ReSwift Enigma.debug.xcconfig */,
-				3385C93C48DBA4385BF1305E6B3A6E9C /* Pods-ReSwift Enigma.release.xcconfig */,
+				547E54B84AB04E5616641627DC7398C6 /* Info.plist */,
+				E36606B16C45458EF2CD613B9FAE66E5 /* ReSwift.modulemap */,
+				80BC445D304E53531DBBBBDD8155CCF7 /* ReSwift.xcconfig */,
+				09F5F3E9F3C5274E64718E147C861BF3 /* ReSwift-dummy.m */,
+				744C207506B2825EA75ECDB9C1628235 /* ReSwift-prefix.pch */,
+				2F205D0FD33CFFB56508E316B6D06F90 /* ReSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ReSwift";
+			sourceTree = "<group>";
+		};
+		CF1838AC3F237FB2BAB434838665BF33 /* Pods-ReSwift Enigma */ = {
+			isa = PBXGroup;
+			children = (
+				05EF307384EB1BEE23C17FE6BF71C78B /* Info.plist */,
+				FF5D776B728957046FCAA63FBA02E75D /* Pods-ReSwift Enigma.modulemap */,
+				4CF90212BF873790D54D2D530DD92E4F /* Pods-ReSwift Enigma-acknowledgements.markdown */,
+				F2841C279351AD06496E067F428494C7 /* Pods-ReSwift Enigma-acknowledgements.plist */,
+				1CC24253F600D375289715858758460B /* Pods-ReSwift Enigma-dummy.m */,
+				EB70A4833D24084028F5DBB5A4E43343 /* Pods-ReSwift Enigma-frameworks.sh */,
+				870966444583C3E0E9F8244065F94CA5 /* Pods-ReSwift Enigma-resources.sh */,
+				3EB25D371706C2B4987573BF26AAC378 /* Pods-ReSwift Enigma-umbrella.h */,
+				FC8CC973967A4FF4D8315945E899157B /* Pods-ReSwift Enigma.debug.xcconfig */,
+				C27397B238CCB171846232DBDEFF9391 /* Pods-ReSwift Enigma.release.xcconfig */,
 			);
 			name = "Pods-ReSwift Enigma";
 			path = "Target Support Files/Pods-ReSwift Enigma";
@@ -247,33 +315,41 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F9D5829AB6B092E91B3A14E646A8D2B3 /* Support Files */ = {
+		E4BFC30AC88BB9FE9A70FB1F776391E8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5056B7A59DE71E1566FAB29570DEA13A /* Info.plist */,
-				38DE9C1EED6E89FD5B3322988D2E19B9 /* SwiftyBeaver.modulemap */,
-				A9FC6B841D3205CFD5479B9E0D478520 /* SwiftyBeaver.xcconfig */,
-				CBD6753BA0483EAD04D7ACA4E5157FE9 /* SwiftyBeaver-dummy.m */,
-				1840D72B10ED8CBEBAEF39ECAF293763 /* SwiftyBeaver-prefix.pch */,
-				D04B7710BB2ED2366046A4AB231C13C1 /* SwiftyBeaver-umbrella.h */,
+				DB294ADC63634B36E3E32CA057FC7450 /* Info.plist */,
+				15692F15CD3F5AB690D03EFD4C96C810 /* SwiftyBeaver.modulemap */,
+				6F5DBFD5006B9664A0434DA249DD7BE7 /* SwiftyBeaver.xcconfig */,
+				D240B56097599B6F27E4A434B4CD4275 /* SwiftyBeaver-dummy.m */,
+				FEBF8856E9C76E7BB8A9B13B8E39665F /* SwiftyBeaver-prefix.pch */,
+				CD58CC078C160AAE6B15E2F4580E2DBF /* SwiftyBeaver-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftyBeaver";
 			sourceTree = "<group>";
 		};
-		FD9968FE58A04E7731D1FFF68255F2EE /* Products */ = {
+		F7CB69C8D0B12BDEBB701F47EDDFF7BC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1AFDA65B8DDAB14132D6DB8ABAFFA0BC /* Pods_ReSwift_Enigma.framework */,
-				F0BB06F252DCC87597468B04D42B2AA5 /* ReSwift.framework */,
-				205E8944B91368742453126650B9FE0A /* SwiftyBeaver.framework */,
+				08EB9FEA8283A6EE70098A8FCD6B6888 /* ReSwift */,
+				667853930626BF7D481C5A3C977B19CB /* Reveal-SDK */,
+				7D5B9549448E2540B6AFEDE51AEBB1A4 /* SwiftyBeaver */,
 			);
-			name = Products;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2B1D74771BD2FBFDED811B4EAC90032F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				218B11888CA1103492A657BB8FAF2B5C /* Pods-ReSwift EnigmaUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4B83E19EEAC3017929587B2A0CAC5079 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +377,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3A63ECBFF113F02D8CD0F53B2C4D32CA /* Pods-ReSwift EnigmaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FC1F87864941A0BE6A2D7A1BC2D2E27 /* Build configuration list for PBXNativeTarget "Pods-ReSwift EnigmaUITests" */;
+			buildPhases = (
+				5BD0372EC498512C2078BA069058E256 /* Sources */,
+				CD28B86C785433A2A32C2E0E6B7154ED /* Frameworks */,
+				2B1D74771BD2FBFDED811B4EAC90032F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1B02207324F2F80C96C6254607FB517 /* PBXTargetDependency */,
+			);
+			name = "Pods-ReSwift EnigmaUITests";
+			productName = "Pods-ReSwift EnigmaUITests";
+			productReference = 6F122DF8DCE47D6949AC8DD5D956CA72 /* Pods_ReSwift_EnigmaUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		5EBDBFA15FC18AC3B66F1CE8C4358AF9 /* Pods-ReSwift Enigma */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF0E2BC20827685AF6AFEDCB9AC0BDC7 /* Build configuration list for PBXNativeTarget "Pods-ReSwift Enigma" */;
@@ -317,7 +411,7 @@
 			);
 			name = "Pods-ReSwift Enigma";
 			productName = "Pods-ReSwift Enigma";
-			productReference = 1AFDA65B8DDAB14132D6DB8ABAFFA0BC /* Pods_ReSwift_Enigma.framework */;
+			productReference = 28E9ADDE3A9BF9C08FCB443AF13434DD /* Pods_ReSwift_Enigma.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		655835309F0368DD6E044AB7750A8C23 /* ReSwift */ = {
@@ -334,7 +428,7 @@
 			);
 			name = ReSwift;
 			productName = ReSwift;
-			productReference = F0BB06F252DCC87597468B04D42B2AA5 /* ReSwift.framework */;
+			productReference = 3F915A0A87E8B266B4A2C9096425A8C8 /* ReSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		92CFB6CC0FCF08116C267F96CACD7C2A /* SwiftyBeaver */ = {
@@ -351,7 +445,7 @@
 			);
 			name = SwiftyBeaver;
 			productName = SwiftyBeaver;
-			productReference = 205E8944B91368742453126650B9FE0A /* SwiftyBeaver.framework */;
+			productReference = C32606B492AEC5B89B704A700006B886 /* SwiftyBeaver.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -371,11 +465,12 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = FD9968FE58A04E7731D1FFF68255F2EE /* Products */;
+			productRefGroup = 1FCB85ED49D89F93603155559469ACE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				5EBDBFA15FC18AC3B66F1CE8C4358AF9 /* Pods-ReSwift Enigma */,
+				3A63ECBFF113F02D8CD0F53B2C4D32CA /* Pods-ReSwift EnigmaUITests */,
 				655835309F0368DD6E044AB7750A8C23 /* ReSwift */,
 				92CFB6CC0FCF08116C267F96CACD7C2A /* SwiftyBeaver */,
 			);
@@ -383,6 +478,14 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5BD0372EC498512C2078BA069058E256 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B71FCFF5957095C81020764C6E4ABC /* Pods-ReSwift EnigmaUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		877FCEF02E8FA4CB1249263FCA94C391 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -436,6 +539,12 @@
 			target = 655835309F0368DD6E044AB7750A8C23 /* ReSwift */;
 			targetProxy = D80AECF8368DA8777556DE7FAB4460DD /* PBXContainerItemProxy */;
 		};
+		B1B02207324F2F80C96C6254607FB517 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ReSwift;
+			target = 655835309F0368DD6E044AB7750A8C23 /* ReSwift */;
+			targetProxy = 1E911EFEDE36EF894F5F39EC2C15C491 /* PBXContainerItemProxy */;
+		};
 		E6ED302398228DC34753C739D9C0FF12 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyBeaver;
@@ -445,6 +554,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0B96E272705F211CDCF688D96BFDC613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48908C048F673D8576E2D2DD82F8BB73 /* Pods-ReSwift EnigmaUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ReSwift EnigmaUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ReSwift EnigmaUITests/Pods-ReSwift EnigmaUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ReSwift_EnigmaUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		163D87BE96A63549B0EACF1CC31A2E90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -495,7 +642,7 @@
 		};
 		17BED5B405242BF2141692CA316471EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBCD8801234885DED48D9A5D48C8882E /* ReSwift.xcconfig */;
+			baseConfigurationReference = 80BC445D304E53531DBBBBDD8155CCF7 /* ReSwift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -530,7 +677,7 @@
 		};
 		248C9CEC476B17191E1A008E8BFF455E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FEC625C04B0C82EEC6486B11D87E147 /* Pods-ReSwift Enigma.debug.xcconfig */;
+			baseConfigurationReference = FC8CC973967A4FF4D8315945E899157B /* Pods-ReSwift Enigma.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -569,7 +716,7 @@
 		};
 		6D50C2ABC74E019480079CFD859B5090 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9FC6B841D3205CFD5479B9E0D478520 /* SwiftyBeaver.xcconfig */;
+			baseConfigurationReference = 6F5DBFD5006B9664A0434DA249DD7BE7 /* SwiftyBeaver.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -647,7 +794,7 @@
 		};
 		747FA84B56B01D1C696FDFFD95ED0BE7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3385C93C48DBA4385BF1305E6B3A6E9C /* Pods-ReSwift Enigma.release.xcconfig */;
+			baseConfigurationReference = C27397B238CCB171846232DBDEFF9391 /* Pods-ReSwift Enigma.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -685,7 +832,7 @@
 		};
 		AB528B7E83D8B5A61D569B221E176D4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9FC6B841D3205CFD5479B9E0D478520 /* SwiftyBeaver.xcconfig */;
+			baseConfigurationReference = 6F5DBFD5006B9664A0434DA249DD7BE7 /* SwiftyBeaver.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -720,7 +867,7 @@
 		};
 		AE39205B4621ABCCDE0C559D0997CB85 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBCD8801234885DED48D9A5D48C8882E /* ReSwift.xcconfig */;
+			baseConfigurationReference = 80BC445D304E53531DBBBBDD8155CCF7 /* ReSwift.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -752,6 +899,45 @@
 			};
 			name = Release;
 		};
+		C1CC8F510D0673C913CABE17625503D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F2E521DDFF2A26BAF27BD8F9CF86B30 /* Pods-ReSwift EnigmaUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ReSwift EnigmaUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ReSwift EnigmaUITests/Pods-ReSwift EnigmaUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ReSwift_EnigmaUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -769,6 +955,15 @@
 			buildConfigurations = (
 				17BED5B405242BF2141692CA316471EA /* Debug */,
 				AE39205B4621ABCCDE0C559D0997CB85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FC1F87864941A0BE6A2D7A1BC2D2E27 /* Build configuration list for PBXNativeTarget "Pods-ReSwift EnigmaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1CC8F510D0673C913CABE17625503D2 /* Debug */,
+				0B96E272705F211CDCF688D96BFDC613 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

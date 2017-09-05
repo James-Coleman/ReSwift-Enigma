@@ -8,6 +8,7 @@ target 'ReSwift Enigma' do
   # Pods for ReSwift Enigma
   pod 'ReSwift'
   pod 'SwiftyBeaver'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 
 end
 

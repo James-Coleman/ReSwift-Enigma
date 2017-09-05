@@ -41,10 +41,10 @@ func outputReducer(action: Action, state: OutputState?) -> OutputState {
         
     case _ as DeleteLetter:
         var currentMessage = state.message.characters
-        currentMessage.popLast()
+        let _ = currentMessage.popLast()
         
         if currentMessage.last == " " {
-            currentMessage.popLast()
+            let _ = currentMessage.popLast()
         }
         
         let newMessage = String(currentMessage)

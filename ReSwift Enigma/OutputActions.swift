@@ -1,5 +1,5 @@
 //
-//  LightboardActions.swift
+//  OutputActions.swift
 //  ReSwift Enigma
 //
 //  Created by James Coleman on 16/07/2017.

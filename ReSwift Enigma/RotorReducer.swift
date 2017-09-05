@@ -232,8 +232,6 @@ func rotorReducer(action: Action, state: RotorState?) -> RotorState {
             state.rightRotorOffset = remainder
         }
         
-        
-        
     case _ as DeleteLetter:
         state.rightRotorOffset -= 1
         while state.rightRotorOffset < 0 {
@@ -247,7 +245,6 @@ func rotorReducer(action: Action, state: RotorState?) -> RotorState {
                 state.centreRotorOffset += 26
             }
         }
-        
         
         if state.centreRotorOffset == state.centreRotor.stepover + 1 && state.rightRotorOffset == state.rightRotor.stepover + 1 {
             // log.debug("left and centre stepback")
@@ -263,7 +260,6 @@ func rotorReducer(action: Action, state: RotorState?) -> RotorState {
             }
         }
 
-        
     default:
         break
     }

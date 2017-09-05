@@ -9,7 +9,7 @@
 import UIKit
 import ReSwift
 
-class SetupViewController: UIViewController {
+class SetupViewController: UIViewController, UIPickerViewDelegate {
     
     let reflectorRotorData = [
         ["A","B","C"],
@@ -51,6 +51,7 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var plugboardM: UITextField!
     @IBOutlet weak var plugboardL: UITextField!
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     @IBAction func startCoding(_ sender: UIBarButtonItem) {
@@ -86,14 +87,23 @@ class SetupViewController: UIViewController {
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             // print("Show")
-            bottomConstraint.constant = keyboardSize.height + 8
+            log.debug("Keyboard size: \(keyboardSize)")
+            let keyboardHeight = keyboardSize.height
+        
+            topConstraint.constant = -keyboardHeight - 8
+            bottomConstraint.constant = keyboardHeight + 8
+            
+            view.layoutIfNeeded()
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let _ = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue { // keyboardSize
             // print("Hide")
+            topConstraint.constant = 8
             bottomConstraint.constant = 8
+            
+            view.layoutIfNeeded()
         }
     }
     
@@ -151,7 +161,7 @@ class SetupViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        log.debug("setup view will appear")
+//                log.debug("setup view will appear")
         mainStore.subscribe(self)
     }
     
@@ -170,12 +180,8 @@ class SetupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-}
-
-extension SetupViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //        print("row: \(row) in component: \(component)")
+//        log.debug("pickerview did select row: \(row) in component: \(component)")
         switch pickerView {
         case reflectorAndRotors:
             switch component {
@@ -183,11 +189,11 @@ extension SetupViewController: UIPickerViewDelegate {
                 mainStore.dispatch(SetReflector(reflector: row))
                 break
             case 1:
-                mainStore.dispatch(SetRotor(rotor: .left, rotorNumber: row))
+                mainStore.dispatch(SetRotor(rotor: .left,   rotorNumber: row))
             case 2:
                 mainStore.dispatch(SetRotor(rotor: .centre, rotorNumber: row))
             case 3:
-                mainStore.dispatch(SetRotor(rotor: .right, rotorNumber: row))
+                mainStore.dispatch(SetRotor(rotor: .right,  rotorNumber: row))
             default:
                 break
             }
@@ -195,11 +201,11 @@ extension SetupViewController: UIPickerViewDelegate {
         case pinOffset:
             switch component {
             case 0:
-                mainStore.dispatch(SetPinOffset(rotor: .left, pinOffset: row))
+                mainStore.dispatch(SetPinOffset(rotor: .left,   pinOffset: row))
             case 1:
                 mainStore.dispatch(SetPinOffset(rotor: .centre, pinOffset: row))
             case 2:
-                mainStore.dispatch(SetPinOffset(rotor: .right, pinOffset: row))
+                mainStore.dispatch(SetPinOffset(rotor: .right,  pinOffset: row))
             default:
                 break
             }
@@ -207,11 +213,11 @@ extension SetupViewController: UIPickerViewDelegate {
         case initialRotorOffset:
             switch component {
             case 0:
-                mainStore.dispatch(SetInitialPosition(rotor: .left, offset: row))
+                mainStore.dispatch(SetInitialPosition(rotor: .left,     offset: row))
             case 1:
-                mainStore.dispatch(SetInitialPosition(rotor: .centre, offset: row))
+                mainStore.dispatch(SetInitialPosition(rotor: .centre,   offset: row))
             case 2:
-                mainStore.dispatch(SetInitialPosition(rotor: .right, offset: row))
+                mainStore.dispatch(SetInitialPosition(rotor: .right,    offset: row))
             default:
                 break
             }
@@ -221,7 +227,58 @@ extension SetupViewController: UIPickerViewDelegate {
             
         }
     }
+    
 }
+
+//extension SetupViewController: UIPickerViewDelegate {
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        log.debug("pickerview did select row: \(row) in component: \(component)")di
+//        switch pickerView {
+//        case reflectorAndRotors:
+//            switch component {
+//            case 0:
+//                mainStore.dispatch(SetReflector(reflector: row))
+//                break
+//            case 1:
+//                mainStore.dispatch(SetRotor(rotor: .left,   rotorNumber: row))
+//            case 2:
+//                mainStore.dispatch(SetRotor(rotor: .centre, rotorNumber: row))
+//            case 3:
+//                mainStore.dispatch(SetRotor(rotor: .right,  rotorNumber: row))
+//            default:
+//                break
+//            }
+//            
+//        case pinOffset:
+//            switch component {
+//            case 0:
+//                mainStore.dispatch(SetPinOffset(rotor: .left,   pinOffset: row))
+//            case 1:
+//                mainStore.dispatch(SetPinOffset(rotor: .centre, pinOffset: row))
+//            case 2:
+//                mainStore.dispatch(SetPinOffset(rotor: .right,  pinOffset: row))
+//            default:
+//                break
+//            }
+//            
+//        case initialRotorOffset:
+//            switch component {
+//            case 0:
+//                mainStore.dispatch(SetInitialPosition(rotor: .left,     offset: row))
+//            case 1:
+//                mainStore.dispatch(SetInitialPosition(rotor: .centre,   offset: row))
+//            case 2:
+//                mainStore.dispatch(SetInitialPosition(rotor: .right,    offset: row))
+//            default:
+//                break
+//            }
+//            
+//        default:
+//            break
+//            
+//        }
+//    }
+//}
 
 extension SetupViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -281,18 +338,18 @@ extension SetupViewController: StoreSubscriber {
         
         let rotorState = state.rotorState
         
-        reflectorAndRotors.selectRow(rotorState.reflectorRow, inComponent: 0, animated: false)
-        reflectorAndRotors.selectRow(rotorState.leftRotorRow, inComponent: 1, animated: false)
+        reflectorAndRotors.selectRow(rotorState.reflectorRow,   inComponent: 0, animated: false)
+        reflectorAndRotors.selectRow(rotorState.leftRotorRow,   inComponent: 1, animated: false)
         reflectorAndRotors.selectRow(rotorState.centreRotorRow, inComponent: 2, animated: false)
-        reflectorAndRotors.selectRow(rotorState.rightRotorRow, inComponent: 3, animated: false)
+        reflectorAndRotors.selectRow(rotorState.rightRotorRow,  inComponent: 3, animated: false)
         
-        pinOffset.selectRow(rotorState.leftRotorPin, inComponent: 0, animated: false)
-        pinOffset.selectRow(rotorState.centreRotorPin, inComponent: 1, animated: false)
-        pinOffset.selectRow(rotorState.rightRotorPin, inComponent: 2, animated: false)
+        pinOffset.selectRow(rotorState.leftRotorPin,    inComponent: 0, animated: false)
+        pinOffset.selectRow(rotorState.centreRotorPin,  inComponent: 1, animated: false)
+        pinOffset.selectRow(rotorState.rightRotorPin,   inComponent: 2, animated: false)
         
-        initialRotorOffset.selectRow(rotorState.leftRotorOffset, inComponent: 0, animated: false)
-        initialRotorOffset.selectRow(rotorState.centreRotorOffset, inComponent: 1, animated: false)
-        initialRotorOffset.selectRow(rotorState.rightRotorOffset, inComponent: 2, animated: false)
+        initialRotorOffset.selectRow(rotorState.leftRotorOffset,    inComponent: 0, animated: false)
+        initialRotorOffset.selectRow(rotorState.centreRotorOffset,  inComponent: 1, animated: false)
+        initialRotorOffset.selectRow(rotorState.rightRotorOffset,   inComponent: 2, animated: false)
         
         let plugboard = state.plugboardState.plugboard
         

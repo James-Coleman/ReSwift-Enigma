@@ -30,7 +30,7 @@ func navigationReducer(action: Action, state: NavigationState?) -> NavigationSta
     case let action as NavigateTo:
         state.navigationStack.append(action.screen)
     case _ as PopBack:
-        state.navigationStack.popLast()
+        let _ = state.navigationStack.popLast()
     default:
         break
     }

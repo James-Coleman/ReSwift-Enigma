@@ -19,8 +19,8 @@ class ReSwift_Enigma_Tests: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
         mainStore.dispatch(DebugResetState())
+        super.tearDown()
     }
     
 //    func testExample() {
@@ -34,6 +34,8 @@ class ReSwift_Enigma_Tests: XCTestCase {
 //            // Put the code you want to measure the time of here.
 //        }
 //    }
+    
+    // MARK: - Basic Encoding
 
     func testReverseDict() {
         let before = ["A":"E", "B":"K", "C":"M", "D":"F", "E":"L", "F":"G", "G":"D", "H":"Q", "I":"V", "J":"Z", "K":"N", "L":"T", "M":"O", "N":"W", "O":"Y", "P":"H", "Q":"X", "R":"U", "S":"S", "T":"P", "U":"A", "V":"I", "W":"B", "X":"R", "Y":"C", "Z":"J"] // Rotor I as example

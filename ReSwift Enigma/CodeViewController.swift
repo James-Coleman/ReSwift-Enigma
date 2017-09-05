@@ -188,7 +188,9 @@ extension CodeViewController: StoreSubscriber {
         
         let outputState = state.outputState
         
-        lights.map { (letter, label) in
+//        print(lightA.textColor)
+        
+        let _ = lights.map { (letter, label) in
             label.textColor = outputState.currentLetter == letter ? .yellow : .lightGray
         }
         

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7598AC69071C395983A0B985 /* Pods_ReSwift_Enigma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CA9630A71A8CD494B106A9 /* Pods_ReSwift_Enigma.framework */; };
+		C679CA1A1F35AE00006A1EA8 /* ReSwift_Enigma_Mock_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C679CA191F35AE00006A1EA8 /* ReSwift_Enigma_Mock_Tests.swift */; };
 		C692DDC31F1B972A00D0F2C8 /* RotorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC21F1B972A00D0F2C8 /* RotorReducer.swift */; };
 		C692DDC51F1BA6A400D0F2C8 /* RotorActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC41F1BA6A400D0F2C8 /* RotorActions.swift */; };
 		C692DDC71F1BAC3300D0F2C8 /* PlugboardReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692DDC61F1BAC3300D0F2C8 /* PlugboardReducer.swift */; };
@@ -31,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C679CA1C1F35AE00006A1EA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6A1FB881F172CEF00A73DEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6A1FB8F1F172CF000A73DEB;
+			remoteInfo = "ReSwift Enigma";
+		};
 		C692DDDF1F214AB000D0F2C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C6A1FB881F172CEF00A73DEB /* Project object */;
@@ -52,6 +60,9 @@
 		B53499637E9756F684657821 /* Pods-ReSwift Enigma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwift Enigma.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwift Enigma/Pods-ReSwift Enigma.release.xcconfig"; sourceTree = "<group>"; };
 		B6CA9630A71A8CD494B106A9 /* Pods_ReSwift_Enigma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReSwift_Enigma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEAB0D8CD2358BA43B0BBD04 /* Pods-ReSwift Enigma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwift Enigma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwift Enigma/Pods-ReSwift Enigma.debug.xcconfig"; sourceTree = "<group>"; };
+		C679CA171F35AE00006A1EA8 /* ReSwift Enigma Mock Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReSwift Enigma Mock Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C679CA191F35AE00006A1EA8 /* ReSwift_Enigma_Mock_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSwift_Enigma_Mock_Tests.swift; sourceTree = "<group>"; };
+		C679CA1B1F35AE00006A1EA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C692DDC21F1B972A00D0F2C8 /* RotorReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorReducer.swift; sourceTree = "<group>"; };
 		C692DDC41F1BA6A400D0F2C8 /* RotorActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotorActions.swift; sourceTree = "<group>"; };
 		C692DDC61F1BAC3300D0F2C8 /* PlugboardReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugboardReducer.swift; sourceTree = "<group>"; };
@@ -82,6 +93,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C679CA141F35AE00006A1EA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C692DDD71F214AB000D0F2C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,6 +135,15 @@
 				D117544202BD7825F6128305 /* Pods-ReSwift EnigmaUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C679CA181F35AE00006A1EA8 /* ReSwift Enigma Mock Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C679CA191F35AE00006A1EA8 /* ReSwift_Enigma_Mock_Tests.swift */,
+				C679CA1B1F35AE00006A1EA8 /* Info.plist */,
+			);
+			path = "ReSwift Enigma Mock Tests";
 			sourceTree = "<group>";
 		};
 		C692DDDB1F214AB000D0F2C8 /* ReSwift Enigma Tests */ = {
@@ -165,6 +192,7 @@
 				C6A1FB921F172CF000A73DEB /* ReSwift Enigma */,
 				C692DDDB1F214AB000D0F2C8 /* ReSwift Enigma Tests */,
 				C692DDE91F2310FF00D0F2C8 /* ReSwift EnigmaUITests */,
+				C679CA181F35AE00006A1EA8 /* ReSwift Enigma Mock Tests */,
 				C6A1FB911F172CF000A73DEB /* Products */,
 				73FB975FA25F2A02CD70C1ED /* Pods */,
 				E06F65DD480BBB3A580711F9 /* Frameworks */,
@@ -177,6 +205,7 @@
 				C6A1FB901F172CF000A73DEB /* ReSwift Enigma.app */,
 				C692DDDA1F214AB000D0F2C8 /* ReSwift Enigma Tests.xctest */,
 				C692DDE81F2310FF00D0F2C8 /* ReSwift EnigmaUITests.xctest */,
+				C679CA171F35AE00006A1EA8 /* ReSwift Enigma Mock Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +241,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C679CA161F35AE00006A1EA8 /* ReSwift Enigma Mock Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C679CA201F35AE00006A1EA8 /* Build configuration list for PBXNativeTarget "ReSwift Enigma Mock Tests" */;
+			buildPhases = (
+				C679CA131F35AE00006A1EA8 /* Sources */,
+				C679CA141F35AE00006A1EA8 /* Frameworks */,
+				C679CA151F35AE00006A1EA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C679CA1D1F35AE00006A1EA8 /* PBXTargetDependency */,
+			);
+			name = "ReSwift Enigma Mock Tests";
+			productName = "ReSwift Enigma Mock Tests";
+			productReference = C679CA171F35AE00006A1EA8 /* ReSwift Enigma Mock Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C692DDD91F214AB000D0F2C8 /* ReSwift Enigma Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C692DDE31F214AB000D0F2C8 /* Build configuration list for PBXNativeTarget "ReSwift Enigma Tests" */;
@@ -281,6 +328,12 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "James Coleman";
 				TargetAttributes = {
+					C679CA161F35AE00006A1EA8 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = T3V57DT83Y;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C6A1FB8F1F172CF000A73DEB;
+					};
 					C692DDD91F214AB000D0F2C8 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = T3V57DT83Y;
@@ -316,11 +369,19 @@
 				C6A1FB8F1F172CF000A73DEB /* ReSwift Enigma */,
 				C692DDD91F214AB000D0F2C8 /* ReSwift Enigma Tests */,
 				C692DDE71F2310FF00D0F2C8 /* ReSwift EnigmaUITests */,
+				C679CA161F35AE00006A1EA8 /* ReSwift Enigma Mock Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C679CA151F35AE00006A1EA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C692DDD81F214AB000D0F2C8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,6 +502,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C679CA131F35AE00006A1EA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C679CA1A1F35AE00006A1EA8 /* ReSwift_Enigma_Mock_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C692DDD61F214AB000D0F2C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,6 +550,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C679CA1D1F35AE00006A1EA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6A1FB8F1F172CF000A73DEB /* ReSwift Enigma */;
+			targetProxy = C679CA1C1F35AE00006A1EA8 /* PBXContainerItemProxy */;
+		};
 		C692DDE01F214AB000D0F2C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C6A1FB8F1F172CF000A73DEB /* ReSwift Enigma */;
@@ -513,6 +587,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C679CA1E1F35AE00006A1EA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T3V57DT83Y;
+				INFOPLIST_FILE = "ReSwift Enigma Mock Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "james-coleman.ReSwift-Enigma-Mock-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReSwift Enigma.app/ReSwift Enigma";
+			};
+			name = Debug;
+		};
+		C679CA1F1F35AE00006A1EA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = T3V57DT83Y;
+				INFOPLIST_FILE = "ReSwift Enigma Mock Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "james-coleman.ReSwift-Enigma-Mock-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReSwift Enigma.app/ReSwift Enigma";
+			};
+			name = Release;
+		};
 		C692DDE11F214AB000D0F2C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -695,6 +797,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C679CA201F35AE00006A1EA8 /* Build configuration list for PBXNativeTarget "ReSwift Enigma Mock Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C679CA1E1F35AE00006A1EA8 /* Debug */,
+				C679CA1F1F35AE00006A1EA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C692DDE31F214AB000D0F2C8 /* Build configuration list for PBXNativeTarget "ReSwift Enigma Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -58,6 +58,16 @@
                ReferencedContainer = "container:ReSwift Enigma.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C679CA161F35AE00006A1EA8"
+               BuildableName = "ReSwift Enigma Mock Tests.xctest"
+               BlueprintName = "ReSwift Enigma Mock Tests"
+               ReferencedContainer = "container:ReSwift Enigma.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
