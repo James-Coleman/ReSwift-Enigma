@@ -120,8 +120,8 @@ class CodeViewController: UIViewController {
         mainStore.subscribe(self)
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         
 //        log.debug(parent)
         
@@ -195,7 +195,7 @@ extension CodeViewController: StoreSubscriber {
         }
         
         messageLabel.text = outputState.message
-        deleteButton.isEnabled = outputState.message.characters.count > 0
+        deleteButton.isEnabled = outputState.message.count > 0
         
     }
 }

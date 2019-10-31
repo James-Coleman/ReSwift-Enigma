@@ -273,6 +273,7 @@ class ReSwift_Enigma_Mock_Tests: XCTestCase {
         XCTAssert(mockSetupViewController.plugboardZ.text == plugboardState["Z"])
     }
     
+    /*
     func testSetupDelegates() {
         
         // Delegates not nil
@@ -386,6 +387,7 @@ class ReSwift_Enigma_Mock_Tests: XCTestCase {
         XCTAssert(plugboardLDelegate.description == mockSetupViewControllerDescription)
         
     }
+    */
     
     func testInitialCodeState() {
         // Rotors
@@ -430,6 +432,7 @@ class ReSwift_Enigma_Mock_Tests: XCTestCase {
         XCTAssert(mockCodeViewController.messageLabel.text == outputState.message)
     }
     
+    /*
     func testCodeDelegates() {
         guard let rotorsDelegate = mockCodeViewController.rotors.delegate else { XCTFail(); return }
         
@@ -441,6 +444,7 @@ class ReSwift_Enigma_Mock_Tests: XCTestCase {
         
         XCTAssert(rotorsDelegate.description == mockCodeViewControllerDescription)
     }
+    */
     
     // MARK: - Rotor Actions
     
@@ -994,7 +998,7 @@ class ReSwift_Enigma_Mock_Tests: XCTestCase {
             
             guard let message = mockCodeViewController.messageLabel.text else { XCTFail(); return }
             
-            guard let lastCharacter = message.characters.last else { XCTFail(); return } // No need to check for spaces because this test is also deleting letters (below).
+            guard let lastCharacter = message.last else { XCTFail(); return } // No need to check for spaces because this test is also deleting letters (below).
             
             XCTAssert(String(lastCharacter) == letter)
             
@@ -1050,7 +1054,7 @@ class ReSwift_Enigma_Mock_Tests: XCTestCase {
             
             XCTAssert(outputState.currentLetter == expectedCharacter)
             
-            guard let lastCharacter = outputState.message.characters.last else { XCTFail(); return }
+            guard let lastCharacter = outputState.message.last else { XCTFail(); return }
             
             XCTAssert(String(lastCharacter) == expectedCharacter)
             
@@ -1064,7 +1068,7 @@ class ReSwift_Enigma_Mock_Tests: XCTestCase {
             
             mockCodeViewController.deleteButton.sendActions(for: .touchUpInside)
             
-            XCTAssert(outputState.message.characters.count == 0)
+            XCTAssert(outputState.message.count == 0)
             
             let rightRotorOffsetAfterDelete = rotorState.rightRotorOffset
             

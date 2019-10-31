@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1740FECD5A74A42ADAE96F3A8246787A"
-               BuildableName = "SwiftyBeaver.framework"
-               BlueprintName = "SwiftyBeaver"
+               BlueprintIdentifier = "78E809F28734398E687C9281A87782D1"
+               BuildableName = "Pods_ReSwift_EnigmaUITests.framework"
+               BlueprintName = "Pods-ReSwift EnigmaUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1740FECD5A74A42ADAE96F3A8246787A"
-            BuildableName = "SwiftyBeaver.framework"
-            BlueprintName = "SwiftyBeaver"
+            BlueprintIdentifier = "78E809F28734398E687C9281A87782D1"
+            BuildableName = "Pods_ReSwift_EnigmaUITests.framework"
+            BlueprintName = "Pods-ReSwift EnigmaUITests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

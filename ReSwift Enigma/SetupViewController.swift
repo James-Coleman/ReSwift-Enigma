@@ -61,7 +61,7 @@ class SetupViewController: UIViewController, UIPickerViewDelegate {
     @IBAction func plugboardEditingChanged(_ sender: UITextField) {
         //        log.info("Sender Text: \(sender.text)")
         
-        let firstLetter = sender.text?.characters.first
+        let firstLetter = sender.text?.first
         let firstLetterString = firstLetter == nil ? "" : String(describing: firstLetter!)
         let firstLetterUppercase = firstLetterString.uppercased()
         
@@ -84,8 +84,8 @@ class SetupViewController: UIViewController, UIPickerViewDelegate {
         
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             // print("Show")
             log.debug("Keyboard size: \(keyboardSize)")
             let keyboardHeight = keyboardSize.height
@@ -97,8 +97,8 @@ class SetupViewController: UIViewController, UIPickerViewDelegate {
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
-        if let _ = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue { // keyboardSize
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let _ = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue { // keyboardSize
             // print("Hide")
             topConstraint.constant = 8
             bottomConstraint.constant = 8
@@ -155,8 +155,8 @@ class SetupViewController: UIViewController, UIPickerViewDelegate {
         
         plugboardLetters = [plugboardQ: "Q", plugboardW: "W", plugboardE: "E", plugboardR: "R", plugboardT: "T", plugboardZ: "Z", plugboardU: "U", plugboardI: "I", plugboardO: "O", plugboardA: "A", plugboardS: "S", plugboardD: "D", plugboardF: "F", plugboardG: "G", plugboardH: "H", plugboardJ: "J", plugboardK: "K", plugboardP: "P", plugboardY: "Y", plugboardX: "X", plugboardC: "C", plugboardV: "V", plugboardB: "B", plugboardN: "N", plugboardM: "M", plugboardL: "L"]
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

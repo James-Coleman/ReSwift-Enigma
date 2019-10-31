@@ -27,7 +27,7 @@ func outputReducer(action: Action, state: OutputState?) -> OutputState {
     
     switch action {
     case let action as SelectLetter:
-        let spacelessMessage = state.message.characters.filter() { $0 != " " }
+        let spacelessMessage = state.message.filter() { $0 != " " }
         
         if (spacelessMessage.count % letterGrouping == 0) && (spacelessMessage.count > 0) {
             state.message += " "
@@ -40,7 +40,7 @@ func outputReducer(action: Action, state: OutputState?) -> OutputState {
         state.currentLetter = nil
         
     case _ as DeleteLetter:
-        var currentMessage = state.message.characters
+        var currentMessage = state.message
         let _ = currentMessage.popLast()
         
         if currentMessage.last == " " {
