@@ -12,6 +12,7 @@ import Foundation
 public class FileDestination: BaseDestination {
 
     public var logFileURL: URL?
+    public var syncAfterEachWrite: Bool = false
 
     override public var defaultHashValue: Int {return 2}
     let fileManager = FileManager.default
@@ -21,7 +22,7 @@ public class FileDestination: BaseDestination {
         // platform-dependent logfile directory default
         var baseURL: URL?
         #if os(OSX)
-            if let url = fileManager.urls(for:.cachesDirectory, in: .userDomainMask).first {
+            if let url = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first {
                 baseURL = url
                 // try to use ~/Library/Caches/APP NAME instead of ~/Library/Caches
                 if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleExecutable") as? String {
@@ -88,9 +89,26 @@ public class FileDestination: BaseDestination {
         guard let url = logFileURL else { return false }
         do {
             if fileManager.fileExists(atPath: url.path) == false {
+                
+                let directoryURL = url.deletingLastPathComponent()
+                if fileManager.fileExists(atPath: directoryURL.path) == false {
+                    try fileManager.createDirectory(
+                        at: directoryURL,
+                        withIntermediateDirectories: true
+                    )
+                }
+                
                 // create file if not existing
                 let line = str + "\n"
                 try line.write(to: url, atomically: true, encoding: .utf8)
+
+                #if os(iOS) || os(watchOS)
+                if #available(iOS 10.0, watchOS 3.0, *) {
+                    var attributes = try fileManager.attributesOfItem(atPath: url.path)
+                    attributes[FileAttributeKey.protectionKey] = FileProtectionType.none
+                    try fileManager.setAttributes(attributes, ofItemAtPath: url.path)
+                }
+                #endif
             } else {
                 // append to end of file
                 if fileHandle == nil {
@@ -102,6 +120,9 @@ public class FileDestination: BaseDestination {
                     let line = str + "\n"
                     if let data = line.data(using: String.Encoding.utf8) {
                         fileHandle.write(data)
+                        if syncAfterEachWrite {
+                            fileHandle.synchronizeFile()
+                        }
                     }
                 }
             }

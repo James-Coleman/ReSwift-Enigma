@@ -9,6 +9,10 @@
 
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 // platform-dependent import frameworks to get device details
 // valid values for os(): OSX, iOS, watchOS, tvOS, Linux
 // in Swift 3 the following were added: FreeBSD, Windows, Android
@@ -78,10 +82,12 @@ public class SBPlatformDestination: BaseDestination {
 
     /// init platform with default internal filenames
     public init(appID: String, appSecret: String, encryptionKey: String,
-        entriesFileName: String = "sbplatform_entries.json",
-        sendingfileName: String = "sbplatform_entries_sending.json",
-        analyticsFileName: String = "sbplatform_analytics.json") {
+                serverURL: URL? = URL(string: "https://api.swiftybeaver.com/api/entries/"),
+                entriesFileName: String = "sbplatform_entries.json",
+                sendingfileName: String = "sbplatform_entries_sending.json",
+                analyticsFileName: String = "sbplatform_analytics.json") {
         super.init()
+        self.serverURL = serverURL
         self.appID = appID
         self.appSecret = appSecret
         self.encryptionKey = encryptionKey
@@ -242,10 +248,8 @@ public class SBPlatformDestination: BaseDestination {
                     toNSLog("Encrypting \(lines) log entries ...")
                     if let encryptedStr = encrypt(str) {
                         var msg = "Sending \(lines) encrypted log entries "
-                        msg += "(\(encryptedStr.characters.count) chars) to server ..."
+                        msg += "(\(encryptedStr.length) chars) to server ..."
                         toNSLog(msg)
-                        //toNSLog("Sending \(encryptedStr) ...")
-
                         sendToServerAsync(encryptedStr) { ok, _ in
 
                             self.toNSLog("Sent \(lines) encrypted log entries to server, received ok: \(ok)")
@@ -293,7 +297,12 @@ public class SBPlatformDestination: BaseDestination {
                     toNSLog("Error! Could not set basic auth header")
                     return complete(false, 0)
             }
+
+            #if os(Linux)
+            let base64Credentials = Base64.encode([UInt8](credentials))
+            #else
             let base64Credentials = credentials.base64EncodedString(options: [])
+            #endif
             request.setValue("Basic \(base64Credentials)", forHTTPHeaderField: "Authorization")
             //toNSLog("\nrequest:")
             //print(request)
@@ -337,6 +346,7 @@ public class SBPlatformDestination: BaseDestination {
                 return complete(ok, status)
             }
             task.resume()
+            session.finishTasksAndInvalidate()
             //while true {} // commenting this line causes a crash on Linux unit tests?!?
         }
     }
@@ -345,13 +355,13 @@ public class SBPlatformDestination: BaseDestination {
     func sendingPointsForLevel(_ level: SwiftyBeaver.Level) -> Int {
 
         switch level {
-        case SwiftyBeaver.Level.debug:
+        case .debug:
             return sendingPoints.debug
-        case SwiftyBeaver.Level.info:
+        case .info:
             return sendingPoints.info
-        case SwiftyBeaver.Level.warning:
+        case .warning:
             return sendingPoints.warning
-        case SwiftyBeaver.Level.error:
+        case .error:
             return sendingPoints.error
         default:
             return sendingPoints.verbose
@@ -400,7 +410,7 @@ public class SBPlatformDestination: BaseDestination {
     }
 
     /// returns optional array of log dicts from a file which has 1 json string per line
-    func logsFromFile(_ url: URL) -> [[String:Any]]? {
+    func logsFromFile(_ url: URL) -> [[String: Any]]? {
         var lines = 0
         do {
             // try to read file, decode every JSON line and put dict from each line in array
@@ -409,12 +419,12 @@ public class SBPlatformDestination: BaseDestination {
             var dicts = [[String: Any]()] // array of dictionaries
             for lineJSON in linesArray {
                 lines += 1
-                if lineJSON.characters.first == "{" && lineJSON.characters.last == "}" {
+                if lineJSON.firstChar == "{" && lineJSON.lastChar == "}" {
                     // try to parse json string into dict
                     if let data = lineJSON.data(using: .utf8) {
                         do {
                             if let dict = try JSONSerialization.jsonObject(with: data,
-                                options: .mutableContainers) as? [String:Any] {
+                                options: .mutableContainers) as? [String: Any] {
                                 if !dict.isEmpty {
                                     dicts.append(dict)
                                 }
@@ -478,7 +488,7 @@ public class SBPlatformDestination: BaseDestination {
     }
 
     /// returns (updated) analytics dict, optionally loaded from file.
-    func analytics(_ url: URL, update: Bool = false) -> [String:Any] {
+    func analytics(_ url: URL, update: Bool = false) -> [String: Any] {
 
         var dict = [String: Any]()
         let now = NSDate().timeIntervalSince1970
@@ -554,12 +564,12 @@ public class SBPlatformDestination: BaseDestination {
     }
 
     /// returns optional dict from a json encoded file
-    func dictFromFile(_ url: URL) -> [String:Any]? {
+    func dictFromFile(_ url: URL) -> [String: Any]? {
         do {
             let fileContent = try String(contentsOfFile: url.path, encoding: .utf8)
             if let data = fileContent.data(using: .utf8) {
                 return try JSONSerialization.jsonObject(with: data,
-                                    options: .mutableContainers) as? [String:Any]
+                                    options: .mutableContainers) as? [String: Any]
             }
         } catch {
             toNSLog("SwiftyBeaver Platform Destination could not read file \(url)")
